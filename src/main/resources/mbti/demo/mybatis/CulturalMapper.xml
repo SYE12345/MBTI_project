@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mbti.demo.mybatis.CulturalMapper">
+    <select id="getAllCultural" resultType="Cultural">
+        SELECT "제목", "시간", "장소", "금액","설명" FROM cultural
+    </select>
+</mapper>
+
+

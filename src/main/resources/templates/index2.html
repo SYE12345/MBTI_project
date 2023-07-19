@@ -1,0 +1,34 @@
+
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f4ca5a497f59209c4926abc82017e9a1"></script>
+
+<script>
+    function searchPlace(placeName) {
+        return new Promise(function(resolve, reject) {
+            var placesService = new kakao.maps.services.Places();
+            placesService.keywordSearch(placeName, function(result, status) {
+                if (status === kakao.maps.services.Status.OK && result.length > 0) {
+                    var place = result[0];
+                    var address = place.address_name;
+                    var coordinates = {
+                        latitude: place.y,
+                        longitude: place.x
+                    };
+                    resolve({ address, coordinates });
+                } else {
+                    reject(status);
+                }
+            });
+        });
+    }
+
+    var placeName = "서울국립박물관";
+    searchPlace(placeName)
+        .then(function(result) {
+            console.log("주소:", result.address);
+            console.log("위도:", result.coordinates.latitude);
+            console.log("경도:", result.coordinates.longitude);
+        })
+        .catch(function(error) {
+            console.log("장소 검색 에러:", error);
+        });
+</script>
