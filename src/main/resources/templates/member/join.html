@@ -192,6 +192,23 @@
     </form>
 
 </div>
+<button type="button" class="submit-btn" onclick="startMbtiTest()">검사시작</button>
 <!-- wrapper -->
+<script>
+
+    function startMbtiTest() {
+
+        fetch('/start_mbti_test', {
+            method: 'POST'
+        })
+            .then(response => response.json())
+            .then(data => {
+                alert(data.message + ' 결과: ' + data.result);
+            })
+            .catch(error => {
+                console.error('에러 발생:', error);
+            });
+    }
+</script>
 </body>
 </html>
