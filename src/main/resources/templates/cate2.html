@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .map_wrap, .map_wrap * {margin:0; padding:0;font-family:'Malgun Gothic',dotum,'돋움',sans-serif;font-size:12px;}
+        .map_wrap {position:relative;width:100%;height:350px;}
+        #category {position:absolute;top:10px;left:10px;border-radius: 5px; border:1px solid #909090;box-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);background: #fff;overflow: hidden;z-index: 2;}
+        #category li {float:left;list-style: none;width:50px;border-right:1px solid #acacac;padding:6px 0;text-align: center; cursor: pointer;}
+        #category li.on {background: #eee;}
+        #category li:hover {background: #ffe6e6;border-left:1px solid #acacac;margin-left: -1px;}
+        #category li:last-child{margin-right:0;border-right:0;}
+        #category li span {display: block;margin:0 auto 3px;width:27px;height: 28px;}
+        #category li .category_bg {background:url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/places_category.png) no-repeat;}
+        #category li .bank {background-position: -10px 0;}
+        #category li .mart {background-position: -10px -36px;}
+        #category li .pharmacy {background-position: -10px -72px;}
+        #category li .oil {background-position: -10px -108px;}
+        #category li .cafe {background-position: -10px -144px;}
+        #category li .store {background-position: -10px -180px;}
+        #category li.on .category_bg {background-position-x:-46px;}
+        .placeinfo_wrap {position:absolute;bottom:28px;left:-150px;width:300px;}
+        .placeinfo {position:relative;width:100%;border-radius:6px;border: 1px solid #ccc;border-bottom:2px solid #ddd;padding-bottom: 10px;background: #fff;}
+        .placeinfo:nth-of-type(n) {border:0; box-shadow:0px 1px 2px #888;}
+        .placeinfo_wrap .after {content:'';position:relative;margin-left:-12px;left:50%;width:22px;height:12px;background:url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png')}
+        .placeinfo a, .placeinfo a:hover, .placeinfo a:active{color:#fff;text-decoration: none;}
+        .placeinfo a, .placeinfo span {display: block;text-overflow: ellipsis;overflow: hidden;white-space: nowrap;}
+        .placeinfo span {margin:5px 5px 0 5px;cursor: default;font-size:13px;}
+        .placeinfo .title {font-weight: bold; font-size:14px;border-radius: 6px 6px 0 0;margin: -1px -1px 0 -1px;padding:10px; color: #fff;background: #d95050;background: #d95050 url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/arrow_white.png) no-repeat right 14px center;}
+        .placeinfo .tel {color:#0f7833;}
+        .placeinfo .jibun {color:#999;font-size:11px;margin-top:0;}
+    </style>
+</head>
+<body>
+<div class="map_wrap">
+    <div id="map" style="width:100%;height:100%;position:relative;overflow:hidden;"></div>
+    <ul id="category">
+        <li id="E" data-order="0" class="on">
+            <span class="category_E"></span>
+            E
+        </li>
+        <li id="I" data-order="1">
+            <span class="category_I"></span>
+            I
+        </li>
+        <li id="S" data-order="2">
+            <span class="category_S"></span>
+            S
+        </li>
+        <li id="N" data-order="3">
+            <span class="category_N"></span>
+            N
+        </li>
+    </ul>
+</div>
+
+<script type="text/javascript" src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=f4ca5a497f59209c4926abc82017e9a1"></script>
+<script>
+    var mapContainer = document.getElementById('map');
+    var mapOption = {
+        center: new kakao.maps.LatLng(37.566826, 126.9786567),
+        level: 5
+    };
+
+    var map = new kakao.maps.Map(mapContainer, mapOption);
+
+    var markers = [];
+
+    function createCategoryMarkers() {
+        var positionsE = [
+            { title: '장소1', latlng: new kakao.maps.LatLng(37.567890, 126.987654), address: '서울특별시 강남구' },
+            { title: '장소2', latlng: new kakao.maps.LatLng(37.578901, 126.976543), address: '서울특별시 강서구' }
+            // Add more data as needed
+        ];
+
+        var positionsI = [
+            { title: '장소3', latlng: new kakao.maps.LatLng(37.556677, 126.998877), address: '서울특별시 종로구' }
+            // Add more data as needed
+        ];
+
+        var positionsS = [
+            { title: '장소4', latlng: new kakao.maps.LatLng(37.589776, 126.965432), address: '서울특별시 동작구' },
+            { title: '장소5', latlng: new kakao.maps.LatLng(37.584739, 126.987654), address: '서울특별시 마포구' }
+            // Add more data as needed
+        ];
+
+        var positionsN = [
+            { title: '장소6', latlng: new kakao.maps.LatLng(37.599988, 126.956723), address: '서울특별시 은평구' }
+            // Add more data as needed
+        ];
+
+        // 각 카테고리별 위치 데이터들에 대해 마커를 생성하고 지도에 추가하는 부분을 추가합니다.
+        for (var i = 0; i < positionsE.length; i++) {
+            addMarker(positionsE[i].latlng, 0);
+        }
+
+        for (var i = 0; i < positionsI.length; i++) {
+            addMarker(positionsI[i].latlng, 1);
+        }
+
+        for (var i = 0; i < positionsS.length; i++) {
+            addMarker(positionsS[i].latlng, 2);
+        }
+
+        for (var i = 0; i < positionsN.length; i++) {
+            addMarker(positionsN[i].latlng, 3);
+        }
+    }
+
+    function addMarker(position, order) {
+        var imageSrc = 'https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/places_category.png';
+        var imageSize = new kakao.maps.Size(27, 28);
+        var imgOptions =  {
+            spriteSize : new kakao.maps.Size(72, 208),
+            spriteOrigin : new kakao.maps.Point(46, (order*36)),
+            offset: new kakao.maps.Point(11, 28)
+        };
+        var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imgOptions);
+
+        var marker = new kakao.maps.Marker({
+            position: position,
+            image: markerImage
+        });
+
+        marker.setMap(map);
+        markers.push(marker);
+
+        return marker;
+    }
+
+    function displayCategory(categoryId) {
+        hideMarkers(); // 카테고리를 선택하기 전에 모든 마커를 숨김
+        showMarkers(categoryId);
+    }
+
+    function hideMarkers() {
+        for (var i = 0; i < markers.length; i++) {
+            markers[i].setMap(null);
+        }
+    }
+
+    function showMarkers(categoryId) {
+        var markerImage = new kakao.maps.MarkerImage(
+            'https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/places_category.png',
+            new kakao.maps.Size(27, 28),
+            {
+                spriteSize: new kakao.maps.Size(72, 208),
+                spriteOrigin: new kakao.maps.Point(46, (categoryId * 36)),
+                offset: new kakao.maps.Point(11, 28)
+            }
+        );
+
+        for (var i = 0; i < markers.length; i++) {
+            var marker = markers[i];
+            var order = markerImage.spriteOrigin.y / 36;
+            if (categoryId === 'E' && order === 0) {
+                marker.setMap(map);
+            } else if (categoryId === 'I' && order === 1) {
+                marker.setMap(map);
+            } else if (categoryId === 'S' && order === 2) {
+                marker.setMap(map);
+            } else if (categoryId === 'N' && order === 3) {
+                marker.setMap(map);
+            }
+        }
+    }
+
+    var category = document.getElementById('category');
+    var categoryItems = category.getElementsByTagName('li');
+
+    for (var i = 0; i < categoryItems.length; i++) {
+        categoryItems[i].onclick = function() {
+            var categoryId = this.getAttribute('id');
+            displayCategory(categoryId);
+        };
+    }
+
+    createCategoryMarkers(); // 페이지가 로드되면 마커 생성
+
+    // 페이지 로드 후 처음에는 모든 마커를 숨김
+    hideMarkers();
+
+</script>
+</body>
+</html>
