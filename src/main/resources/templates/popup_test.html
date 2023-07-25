@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <title>MBTI</title>
-  <link rel="stylesheet" href="css/popup.css"
-  th:href="@{/templates/css/popup.css}">
+  <link rel="stylesheet" href="../static/css/popup.css"
+  th:href="@{/css/popup.css}">
 </head>
 <body>
 <tr th:each="i:${information}">
@@ -27,6 +27,6 @@
     </div>
   </div>
 </tr>
-<script src = "js/popup.js" th:src="@{/templates/js/popup.js}"></script>
+<script src = "../static/js/popup.js" th:src="@{/js/popup.js}"></script>
 </body>
 </html>

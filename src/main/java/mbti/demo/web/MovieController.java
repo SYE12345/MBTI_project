@@ -21,12 +21,12 @@ public class MovieController {
 //        return "index";
 //    }
 
-    @GetMapping("/")
-    public String test2(){
-//        log.info(movieServiceInterface.findByGenre()+"");
-        log.info(movieServiceInterface.findAll()+"");
-        return "index";
-    }
+//    @GetMapping("/")
+//    public String test2(){
+////        log.info(movieServiceInterface.findByGenre()+"");
+//        log.info(movieServiceInterface.findAll()+"");
+//        return "index";
+//    }
 
 //    @GetMapping("/") //@PathVariable long itemId,
 //    public String movie(Model model) {
