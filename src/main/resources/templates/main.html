@@ -1,35 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<<<<<<< HEAD
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MBTI Main Page</title>
-    <style>
-        body {font-family: Arial, sans-serif;margin: 0;padding: 0;}
-        header {background-color: #333;color: #fff;text-align: center;padding: 10px; }
-        nav {background-color: #444;display: flex;justify-content: center;padding: 10px;}
-        nav a {color: #fff;text-decoration: none;margin: 0 15px;padding: 5px 10px;}
-        nav a:hover {background-color: #555;}
-        .login-form {display: flex;justify-content: center;margin-top: 20px;}
-        .login-form input[type="text"],
-        .login-form input[type="password"],
-        .login-form button {margin: 5px;}
-    </style>
-</head>
-<body>
-<header>
-    <h1>MBTI</h1>
-    <button onclick="goToLoginPage()">로그인</button>
-</header>
-<nav>
-    <a href="info.html">정보</a>
-    <a href="kakaover4.html">지도</a>
-    <a href="book.html">책</a>
-    <a href="movie.html">영화</a>
-</nav>
-</body>
-=======
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -45,7 +15,7 @@
         <!-- SimpleLightbox plugin CSS-->
 <!--        <link href="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.css" rel="stylesheet" />-->
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link rel="stylesheet" href="../static/css/styles.css" th:href="@{../static/css/styles.css}">
+        <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}">
     </head>
     <body id="page-top">
         <!-- Navigation-->
@@ -293,12 +263,11 @@
         <!-- SimpleLightbox plugin JS-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.js" th:src="@{https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.js}"></script>
         <!-- Core theme JS-->
-        <script src="../static/js/scripts.js" th:src="@{../static/js/scripts.js}"></script>
+        <script src="/js/scripts.js" th:src="@{/js/scripts.js}"></script>
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <!-- * *                               SB Forms JS                               * *-->
         <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
 <!--        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>-->
     </body>
->>>>>>> jun/master
 </html>
