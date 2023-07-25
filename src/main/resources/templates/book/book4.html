@@ -8,13 +8,27 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>유형별 책추천 페이지</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}">
+<!--    <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}">-->
     <link rel="stylesheet" type="text/css" th:href="@{/css/listCSS.css}">
-
+    <style>
+        @font-face {
+            font-family: 'Dovemayo_gothic';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.1/Dovemayo_gothic.woff2') format('woff2');
+            font-weight: normal;
+            font-style: normal;
+        }
+        *{
+            font-family: 'Dovemayo_gothic';
+        }
+        body {
+            padding-top: 50px;
+            background-color: #E0E0E0;
+        }
+    </style>
 </head>
 
-<body>
-<div th:include="header.html"></div>
+<body >
+<div th:insert="~{/header.html}"></div>
 <aside id="list-aside">
     <div class="menu">
         <label for="expand-menu"><div>MBTI 유형</div></label><hr>
@@ -29,7 +43,7 @@
                      </div>
 </aside>
 <section id="list-section">
-    <h1>유형별 영화추천 페이지</h1>
+    <h1>유형별 책 추천 페이지</h1>
     <h2>탐험가형(_S_P)</h2>
     <div class="button" id="button-back"> <!-- 유형별 MBTi 나열-->
         <button style="--clr:#39FF14"><span>#ISTP</span><i></i></button>
@@ -58,6 +72,6 @@
 </span>
     </div>
 </section>
-<div th:include="footer.html"></div>
+<footer th:insert="~{/footer.html}"></footer>
 </body>
 </html>
