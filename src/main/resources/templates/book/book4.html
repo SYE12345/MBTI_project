@@ -54,7 +54,7 @@
     <div>
         <span>Pages:</span>
         <span th:each="pageNumber : ${#numbers.sequence(1, bookPage.totalPages)}">
-    <a th:href="@{/book/AnalystType(page=${pageNumber})}" th:text="${pageNumber}"></a>
+    <a th:href="@{/book/ExplorerType(page=${pageNumber})}" th:text="${pageNumber}"></a>
 </span>
     </div>
 </section>
