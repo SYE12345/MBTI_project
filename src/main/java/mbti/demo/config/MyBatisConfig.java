@@ -21,24 +21,24 @@ public class MyBatisConfig {
     private final MovieMapper movieMapper;
     private final BookMapper bookMapper;
 
+
     @Bean
     public MovieServiceInterface movieServiceInterface(){
-        return new MovieService(movieRepository());
+        return new MovieService(movieRepository(), movieMapper);
 
     }
     @Bean
     public MovieRepository movieRepository() {
         return new MyBatisMovieRepository(movieMapper);
     }
-
     @Bean
-    public BookInterface bookInterface(){
-        return new MyBatisBookRepository(bookMapper);
-
+    public BookServiceInterface bookServiceInterface() {
+        return new BookService(bookInterface(), bookMapper);
     }
-
     @Bean
-    public BookServiceInterface bookServiceInterface(){
-        return new BookService(bookInterface(),bookMapper);
+    public BookInterface bookInterface() {
+        return new MyBatisBookRepository(bookMapper);
     }
 }
+
+
