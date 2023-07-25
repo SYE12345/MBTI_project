@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>유형별 책추천 페이지</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/listCSS.css}">
+
+</head>
+
+<body>
+<div th:include="header.html"></div>
+<aside id="list-aside">
+    <div class="menu">
+        <label for="expand-menu"><div>MBTI 유형</div></label><hr>
+        <input type="checkbox" id="expand-menu" name="expand-menu">
+        <ul>
+            <li><a  th:href="@{/book/AnalystType}" class="item"><div>분석가형(_NT_)</div></a></li>
+            <li><a th:href="@{/book/DiplomaticType}" class="item"><div>외교관형(_NF_)</div></a></li>
+            <li><a th:href="@{/book/AdministratorType}" class="item"><div>관리자형(_S_J)</div></a></li>
+            <li><a th:href="@{/book/ExplorerType}" class="item"><div>탐험가형(_S_P)</div></a></li>
+
+                     </ul>
+                     </div>
+</aside>
+<section id="list-section">
+    <h1>유형별 영화추천 페이지</h1>
+    <h2>외교관형(_NF_)</h2>
+    <div class="button" id="button-back"> <!-- 유형별 MBTi 나열-->
+        <button style="--clr:#39FF14"><span>#INFJ</span><i></i></button>
+        <button style="--clr:#FF44CC"><span>#INFP</span><i></i></button>
+        <button style="--clr:#0FF0FC"><span>#ENFJ</span><i></i></button>
+        <button style="--clr:#8A2BE2"><span>#ENFP</span><i></i></button>
+    </div>
+
+    <span id="displayCount"></span>
+    <table id="dataTableBody">
+        <tr th:each="book, idx:${bookPage}" >
+            <td >
+                <img src="https://shopping-phinf.pstatic.net/main_3729079/37290792626.20230516164712.jpg" th:src="@{${book.image}}">
+                <div class="box"></div>
+                <div class="book-info">
+                    <h3 class="a" th:text="|제목: ${book.title}|">요리조리 열어 보는 화산과 지진 (플랩북)</h3>
+                    <h4 class="a" th:text="|작가: ${book.author}|">에밀리 본</h4>
+                    <h4  class="a" th:text="|출판사: ${book.company}|">어스본코리아</h4>
+                </div>
+            </td>
+        </tr>
+    </table>
+    <div>
+        <span>Pages:</span>
+        <span th:each="pageNumber : ${#numbers.sequence(1, bookPage.totalPages)}">
+    <a th:href="@{/book/AnalystType(page=${pageNumber})}" th:text="${pageNumber}"></a>
+</span>
+    </div>
+</section>
+<div th:include="footer.html"></div>
+</body>
+</html>

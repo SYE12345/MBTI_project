@@ -4,44 +4,44 @@
 <mapper namespace="mbti.demo.mybatis.BookMapper">
 
 
-    <select id="findAll" resultType="book">
-        select 제목 as title,
-               이미지 as image,
-               작가 as author,
-               출판사 as company
-        from book 
-    </select>
-
-    <select id="findByAnalystType" resultType="book">
+    <select id="findAll" resultType="Book">
         select 제목 as title,
                이미지 as image,
                작가 as author,
                출판사 as company
         from book
+    </select>
+
+    <select id="findByAnalystType" resultType="Book">
+        select 제목 as title,
+               이미지 as image,
+               작가 as author,
+               출판사 as company
+        from Book
         where 서술 like '%과학%' or
             서술 like '%말하기%' or
             서술  like '%정치%' or
             서술 like '%SF%'
     </select>
 
-    <select id="findByDiplomaticType" resultType="book">
+    <select id="findByDiplomaticType" resultType="Book">
         select 제목 as title,
                이미지 as image,
                작가 as author,
                출판사 as company
-        from book
+        from Book
         where 서술 like '%심리%' or
             서술 like '%외교%' or
             서술 like '%사회%' or
-           서술 like '%에세이%'
+            서술 like '%에세이%'
     </select>
 
-    <select id="findByAdministratorType" resultType="book">
+    <select id="findByAdministratorType" resultType="Book">
         select 제목 as title,
                이미지 as image,
                작가 as author,
                출판사 as company
-        from book
+        from Book
         where 서술 like '%교양%' or
             서술 like '%경영%' or
             서술 like '%사업%' or
@@ -49,17 +49,20 @@
 
     </select>
 
-    <select id="findByExplorerType" resultType="book">
+    <select id="findByExplorerType" resultType="Book">
         select 제목 as title,
                이미지 as image,
                작가 as author,
                출판사 as company
-        from book
+        from Book
         where 서술 like '%여행%' or
             서술 like '%유머%' or
             서술 like '%예술%' or
             서술 like '%심리%'
     </select>
 
+    <select id="countTotalBooks" resultType="long">
+        SELECT COUNT(*) FROM Book
+    </select>
 
 </mapper>
