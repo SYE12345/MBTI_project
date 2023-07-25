@@ -1,12 +1,35 @@
 package mbti.demo.service;
 
 import mbti.demo.domain.Movie;
-import mbti.demo.repository.MovieSearchCond;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
-import java.util.List;
 import java.util.Optional;
 
 public interface MovieServiceInterface {
     Optional<Movie> findByGenre(String genre);
-    List<Movie> findAll();
+    // 일반
+//    List<Movie> findByAnalystType();
+    // 페이징용
+    Page<Movie> findByAnalystType(Pageable pageable);
+
+    // 일반
+//    List<Movie> findByDiplomaticType();
+    // 페이징용
+    Page<Movie> findByDiplomaticType(Pageable pageable);
+
+    // 일반
+//    List<Movie> findByAdministratorType();
+    // 페이징용
+    Page<Movie> findByAdministratorType(Pageable pageable);
+
+    // 일반
+//    List<Movie> findByExplorerType();
+    // 페이징용
+    Page<Movie> findByExplorerType(Pageable pageable);
+
+    // 일반
+//    List<Movie> findAll();
+    // 페이징용
+    Page<Movie> findMoviesWithPaging(Pageable pageable);
 }
