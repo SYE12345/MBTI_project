@@ -29,5 +29,14 @@ vertical-align: middle; margin: 0 10px 0 0;}
 .login div ul li { position: relative; padding : 0 18px; }
 .login div ul li:after{ content:""; position:absolute; right:0; top:0; height:100%; width:1px; background: #111;}
 .login div a {font-size: 14px; color:#111;}
+@font-face {
+    font-family: 'Dovemayo_gothic';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.1/Dovemayo_gothic.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+*{
+    font-family: 'Dovemayo_gothic';
+}
 
 
