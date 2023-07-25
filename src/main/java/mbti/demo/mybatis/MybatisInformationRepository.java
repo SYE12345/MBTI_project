@@ -1,8 +1,14 @@
 package mbti.demo.mybatis;
 
+<<<<<<< HEAD
 import mbti.demo.domain.Information;
 import mbti.demo.repository.InformationInterface;
 import lombok.RequiredArgsConstructor;
+=======
+import lombok.RequiredArgsConstructor;
+import mbti.demo.domain.Information;
+import mbti.demo.repository.InformationInterface;
+>>>>>>> jun/master
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
