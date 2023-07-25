@@ -39,6 +39,6 @@ public class MyBatisConfig {
 
     @Bean
     public BookServiceInterface bookServiceInterface(){
-        return new BookService(bookInterface());
+        return new BookService(bookInterface(),bookMapper);
     }
 }

@@ -7,9 +7,9 @@ public interface BookInterface {
 
     Book save(Book book);
     List<Book> findAll();
-    List<Book> findByAnalystType(); //분석가형
-    List<Book> findByDiplomaticType(); //외교관형
-    List<Book> findByAdministratorType(); //관리자형
-    List<Book> findByExplorerType(); //탐험가형
+    List<Book> findByAnalystType(int offset, int limit); //분석가형
+    List<Book> findByDiplomaticType(int offset, int limit); //외교관형
+    List<Book> findByAdministratorType(int offset, int limit); //관리자형
+    List<Book> findByExplorerType(int offset, int limit); //탐험가형
 
 }
