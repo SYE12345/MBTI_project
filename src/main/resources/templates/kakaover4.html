@@ -56,15 +56,16 @@
   </style>
 </head>
 <body>
-<header>
-  <h1>MBTI</h1>
-</header>
-<nav>
-  <a href="info.html">정보</a>
-  <a href="kakaover4.html">지도</a>
-  <a href="book.html">책</a>
-  <a href="movie.html">영화</a>
-</nav>
+<div th:insert="~{/header.html}"></div>
+<!--<header>-->
+<!--  <h1>MBTI</h1>-->
+<!--</header>-->
+<!--<nav>-->
+<!--  <a href="info.html">정보</a>-->
+<!--  <a href="kakaover4.html">지도</a>-->
+<!--  <a href="book.html">책</a>-->
+<!--  <a href="movie.html">영화</a>-->
+<!--</nav>-->
 <div class="map_wrap">
   <div id="map" style="width: 100%; height: 100%; position: relative; overflow: hidden;"></div>
   <div class="categories">
@@ -363,5 +364,6 @@
   fetchAndCreateMarkers('output1.json');
 
 </script>
+<footer th:insert="~{/footer.html}"></footer>
 </body>
 </html>
