@@ -2,9 +2,29 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>키워드로 장소검색하고 목록으로 표출하기</title>
+  <title>유형별 장소 추천</title>
   <style>
-    body {font-family: Arial, sans-serif;margin: 0;padding: 0;}
+    section{
+      text-align: center;
+    }
+    @font-face {
+      font-family: 'Dovemayo_gothic';
+      src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.1/Dovemayo_gothic.woff2') format('woff2');
+      font-weight: normal;
+      font-style: normal;
+    }
+    h1{font-size: 2.5em}
+    h3{font-size: 1em}
+    *{
+      font-family: 'Dovemayo_gothic';
+    }
+    body {
+      /*font-family: Arial, sans-serif;*/
+      /*margin: 0;*/
+      /*padding: 0;*/
+      padding-top: 50px;
+      background-color: #E0E0E0;
+    }
     header {background-color: #333;color: #fff;text-align: center;padding: 30px;font-size: 40px;}
     nav {background-color: #444;display: flex;justify-content: center;padding: 10px;}
     nav a {color: #fff;text-decoration: none;margin: 0 15px;padding: 15px 30px;font-size: 40px;}
@@ -46,7 +66,7 @@
     #pagination a {display:inline-block;margin-right:10px;}
     #pagination .on {font-weight: bold; cursor: default;color:#777;}
     #map {width: 100%;height: 350px;position: relative;}
-    .categories {position: absolute;top: 10px;right: 10px;z-index: 999;display: flex;}
+    .categories {position: absolute;top: 10px;right: 10px;display: flex;}
     .category {margin-right: 5px;padding: 10px 20px;font-size: 30px;background-color: white;cursor: pointer;}
 
     .category.active {
@@ -57,17 +77,14 @@
 </head>
 <body>
 <div th:insert="~{/header.html}"></div>
-<!--<header>-->
-<!--  <h1>MBTI</h1>-->
-<!--</header>-->
-<!--<nav>-->
-<!--  <a href="info.html">정보</a>-->
-<!--  <a href="kakaover4.html">지도</a>-->
-<!--  <a href="book.html">책</a>-->
-<!--  <a href="movie.html">영화</a>-->
-<!--</nav>-->
+<section>
+<h1>유형별 문화생활 추천 페이지</h1>
+  <h2>유형별 문화생활를 즐길 수 있도록 어울리는 장소를 추천해드립니다 : )</h2>
+<h3>*참고) 에너지의 방향을 나타내는 외향형(E), 내향형(I)<br>
+  사람이나 사물을 인식하는 방식을 나타내는 감각형(S), 직관형(N)<br></h3>
+</section>
 <div class="map_wrap">
-  <div id="map" style="width: 100%; height: 100%; position: relative; overflow: hidden;"></div>
+  <div id="map" style="   overflow: hidden;"></div>
   <div class="categories">
     <div class="category active" data-category="E">E</div>
     <div class="category" data-category="I">I</div>
