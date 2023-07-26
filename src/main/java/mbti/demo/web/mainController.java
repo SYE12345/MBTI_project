@@ -26,4 +26,5 @@ public class mainController {
         model.addAttribute("member",loginMember);
         return "main_login";
     }
+
 }

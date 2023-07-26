@@ -28,10 +28,8 @@
 </head>
 
 <body>
-
 <div th:insert="~{/header.html}"></div><br>
-
-<aside id="lis-aside">
+<aside id="list-aside">
     <div class="menu">
         <label for="expand-menu"><div>MBTI 유형</div></label><hr>
         <input type="checkbox" id="expand-menu" name="expand-menu">
@@ -56,22 +54,22 @@
 
     <span id="displayCount"></span>
     <table id="dataTableBody">
-              <tr th:each="book, idx:${bookPage}" >
-              <td >
-                  <img src="https://shopping-phinf.pstatic.net/main_3729079/37290792626.20230516164712.jpg" th:src="@{${book.image}}">
-              <div class="box"></div>
-              <div class="book-info">
-              <h3 class="a" th:text="|제목: ${book.title}|">요리조리 열어 보는 화산과 지진 (플랩북)</h3>
-              <h4 class="a" th:text="|작가: ${book.author}|">에밀리 본</h4>
-              <h4  class="a" th:text="|출판사: ${book.company}|">어스본코리아</h4>
-              </div>
-              </td>
-              </tr>
-              </table>
+        <tr th:each="book, idx:${bookPage}" >
+            <td >
+                <img src="https://shopping-phinf.pstatic.net/main_3729079/37290792626.20230516164712.jpg" th:src="@{${book.image}}">
+                <div class="box"></div>
+                <div class="book-info">
+                    <h3 class="a" th:text="|제목: ${book.title}|">요리조리 열어 보는 화산과 지진 (플랩북)</h3>
+                    <h4 class="a" th:text="|작가: ${book.author}|">에밀리 본</h4>
+                    <h4  class="a" th:text="|출판사: ${book.company}|">어스본코리아</h4>
+                </div>
+            </td>
+        </tr>
+    </table>
     <div>
         <span>Pages:</span>
         <span th:each="pageNumber : ${#numbers.sequence(1, bookPage.totalPages)}">
-    <a th:href="@{/book/AnalystType(page=${pageNumber})}" th:text="${pageNumber}"></a>
+    <a th:href="@{/book/DiplomaticType(page=${pageNumber})}" th:text="${pageNumber}"></a>
 </span>
     </div>
 </section>
