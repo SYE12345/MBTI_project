@@ -199,9 +199,11 @@
     function startMbtiTest() {
 
         fetch('/start_mbti_test', {
-            method: 'GET'
+            method: 'GET',
+
         })
-            .then(response => response.json())
+
+    .then(response => response.json())
             .then(data => {
                 alert(data.message + ' 결과: ' + data.result);
                 window.location.href = data.result;
