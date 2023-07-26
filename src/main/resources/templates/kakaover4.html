@@ -31,8 +31,8 @@
     nav a:hover {background-color: #555;}
     .map_wrap, .map_wrap * {margin:0;padding:0;font-family:'Malgun Gothic',dotum,'돋움',sans-serif;font-size:12px;}
     .map_wrap a, .map_wrap a:hover, .map_wrap a:active{color:#000;text-decoration: none;}
-    .map_wrap {position:relative;width:50%;height:40vh; margin: 0 auto; margin-top: 500px;}
-    #menu_wrap {position:absolute;top:0;left:0;bottom:0;width:400px;margin:10px 0 30px 10px;padding:5px;overflow-y:auto;background:rgba(255, 255, 255, 0.7);z-index: 1;font-size:12px;border-radius: 10px;}
+    .map_wrap {position:relative;width:100%;height:40vh; margin: 0 auto; z-index: 100;  display: flex; flex-direction: column; align-items: center;}
+    #menu_wrap {position:absolute;top:10px;left:10px;bottom:0;width:400px;margin:10px 0 30px 10px;padding:5px;overflow-y:auto;background:rgba(255, 255, 255, 0.7);z-index: 1;font-size:12px;border-radius: 10px;}
     .bg_white {background:#fff;}
     #menu_wrap hr {display: block; height: 1px;border: 0; border-top: 2px solid #5F5F5F;margin:3px 0;}
     #menu_wrap .option{text-align: center;}
@@ -65,10 +65,9 @@
     #pagination {margin:10px auto;text-align: center;}
     #pagination a {display:inline-block;margin-right:10px;}
     #pagination .on {font-weight: bold; cursor: default;color:#777;}
-    #map {width: 100%;height: 350px;position: relative;}
-    .categories {position: absolute;top: 10px;right: 10px;display: flex;}
-    .category {margin-right: 5px;padding: 10px 20px;font-size: 30px;background-color: white;cursor: pointer;}
-
+    #map {width: 1900px;height: 1000px;position: relative;}
+    .categories { display: flex;justify-content: space-between;position: absolute;top: 10px;right: 10px; z-index: 999;}
+    .category {margin-right: 5px;padding: 10px 20px;font-size: 30px;background-color: white;cursor: pointer;border: 1px solid black;}
     .category.active {
       background-color: black;
       color: pink;
@@ -111,14 +110,6 @@
 <script>
   var markers = [];
 
-  var mapContainer = document.getElementById('map');
-  var mapOption = {
-    center: new kakao.maps.LatLng(37.566826, 126.9786567),
-    level: 3
-  };
-
-
-  var map = new kakao.maps.Map(mapContainer, mapOption);
 
   var ps = new kakao.maps.services.Places();
 
@@ -318,7 +309,7 @@
   var mapContainer = document.getElementById('map');
   var mapOption = {
     center: new kakao.maps.LatLng(36.566535, 127.9779692),
-    level: 12
+    level: 13
   };
 
   var map = new kakao.maps.Map(mapContainer, mapOption);
@@ -329,7 +320,7 @@
     var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png";
 
     for (var i = 0; i < positions.length; i++) {
-      var imageSize = new kakao.maps.Size(24, 35);
+      var imageSize = new kakao.maps.Size(25, 30);
       var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize);
 
       var marker = new kakao.maps.Marker({
@@ -381,6 +372,7 @@
   fetchAndCreateMarkers('output1.json');
 
 </script>
+
 <footer th:insert="~{/footer.html}"></footer>
 </body>
 </html>
