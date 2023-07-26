@@ -59,15 +59,17 @@
         <tr th:each="movie: ${movies.content}">
             <td>
                 <!--                <img th:src="@{${movie.URL}}">-->
-                <div class="list-info">
+<!--                <div class="list-info">-->
                     <img th:src="@{${movie.URL != null ? movie.URL : ''}}">
+                    <div class="movie-box"></div>
+<!--                    <div class="list-info">-->
                     <!--                    <h3 th:text="|제목: ${movie.name}|"></h3>-->
                     <h3 th:text="|제목: ${movie.name != null ? movie.name : ''}|"></h3>
                     <!--                    <h4 th:text="|개봉일: ${movie.opening}|"></h4>-->
                     <h4 th:text="|개봉일: ${movie.opening != null ? movie.opening : ''}|"></h4>
                     <!--                    <h4 th:text="|장르: ${movie.genre}|"></h4>-->
                     <h4 th:text="|장르: ${movie.genre != null ? movie.genre : ''}|"></h4>
-                </div>
+<!--                </div>-->
             </td>
         </tr>
     </table>
