@@ -88,12 +88,15 @@
     h2{
       color: white;
       width: 100%; /* 가로 폭 100%로 설정하여 차트를 감싸도록 함 */
-      text-align: center; /* 텍스트를 가운데 정렬 */
+      text-align: center;
+      font-size: 2em;
+      /* 텍스트를 가운데 정렬 */
     }
     h3{
       color: darkgray;
       width: 100%; /* 가로 폭 100%로 설정하여 차트를 감싸도록 함 */
       text-align: center; /* 텍스트를 가운데 정렬 */
+      font-size: 1.5em;
     }
     footer{
       padding-top: 50px;
@@ -105,7 +108,7 @@
 <div th:insert="~{/header.html}"></div>
 <section>
   <div class="charts-row">
-    <h2>MBTI RANKING</h2>
+    <h2>MBTI RANKING<br>(나와 같은 유형, 얼마나 있을까?)</h2>
     <div class="chart-container">
       <div class="chart">
         <canvas id="chart1" width="500" height="100"></canvas>
@@ -113,7 +116,7 @@
     </div>
   </div>
   <div class="charts-row">
-    <h2>MBTI RATE</h2>
+    <h2>MBTI R A T E<br>(유형별 집중 탐구)</h2>
       <div class="chart-container2">
         <div class="chart">
           <h3>E/I 비율</h3>
@@ -139,7 +142,7 @@
 
 <!--information button start-->
 <table class="popup-container">
-  <h2>MBTI 정보</h2>
+  <h2>MBTI 정보<br>#나의 키워드 #내 성향</h2>
   <tr th:each="i, rowStat : ${information}" th:if="${rowStat.index % 4 == 0}" th:class="${'color-' + ((rowStat.index / 4) % 4 + 1)}">
     <td>
       <button class="openBtn"><h2 th:text ="|${i.getIndicate()}|"></h2></button>

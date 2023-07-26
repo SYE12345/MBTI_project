@@ -222,3 +222,17 @@ img {
     border-bottom: 1px solid #e6c46d; !important;
     background-color: #9f7e61; !important;
 }
+
+.movie-box{
+    content: "";
+    z-index: 2;
+    /*position: absolute;*/
+    /*top: 172px;*/
+    left: 0;
+    right: 0;
+    height: 14px;
+    box-sizing: border-box;
+    border-top: 1px solid #e6c46d; !important;
+    border-bottom: 1px solid #e6c46d; !important;
+    background-color: #9f7e61; !important;
+}
