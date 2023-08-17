@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
   <title>Combined Charts</title>
@@ -137,7 +137,11 @@
     </div>
   </div>
 </section>
-<script src="/js/chart.js" th:src="@{/js/chart.js}"></script>
+<script type="module" th:inline="javascript">
+  import {chart} from '/js/chart.js'
+  const a = [[${mbti}]]
+  chart(a)
+</script>
 <!--mbti graph end-->
 
 <!--information button start-->
@@ -146,25 +150,27 @@
   <tr th:each="i, rowStat : ${information}" th:if="${rowStat.index % 4 == 0}" th:class="${'color-' + ((rowStat.index / 4) % 4 + 1)}">
     <td>
       <button class="openBtn"><h2 th:text ="|${i.getIndicate()}|"></h2></button>
-        <div class="modal hidden">
-          <div class="bg"></div>
-            <div class="modalBox">
-              <h4  th:text="|${i.getPersonality()}|"></h4>
-              <ul>
-                <li th:text="|${i.getKeyword1()}|"></li>
-                <li th:text="|${i.getKeyword2()}|"></li>
-                <li th:text="|${i.getKeyword3()}|"></li>
-                <li th:text="|${i.getKeyword4()}|"></li>
-                <li th:text="|${i.getKeyword5()}|"></li>
-                <li th:text="|${i.getKeyword6()}|"></li>
-                <li th:text="|${i.getKeyword7()}|"></li>
-                <li th:text="|${i.getKeyword8()}|"></li>
-                <li th:text="|${i.getKeyword9()}|"></li>
-                <li th:text="|${i.getKeyword10()}|"></li>
-              </ul>
-            <button class="closeBtn">닫기</button>
-          </div>
+      <div class="modal hidden">
+        <div class="bg"></div>
+        <div></div>
+        <div class="modalBox">
+          <h4  th:text="|${i.getPersonality()}|"></h4>
+          <ul>
+            <li th:text="|${i.getKeyword1()}|"></li>
+            <li th:text="|${i.getKeyword2()}|"></li>
+            <li th:text="|${i.getKeyword3()}|"></li>
+            <li th:text="|${i.getKeyword4()}|"></li>
+            <li th:text="|${i.getKeyword5()}|"></li>
+            <li th:text="|${i.getKeyword6()}|"></li>
+            <li th:text="|${i.getKeyword7()}|"></li>
+            <li th:text="|${i.getKeyword8()}|"></li>
+            <li th:text="|${i.getKeyword9()}|"></li>
+            <li th:text="|${i.getKeyword10()}|"></li>
+            <img th:src="|${i.getImg()}|"></img>
+          </ul>
+          <button class="closeBtn">닫기</button>
         </div>
+      </div>
     </td>
     <td th:if="${information.size() > rowStat.index + 1}">
       <button class="openBtn" ><h2 th:text ="|${information[rowStat.index + 1].getIndicate()}|"></h2></button>
@@ -183,6 +189,7 @@
             <li th:text="|${information[rowStat.index + 1].getKeyword8()}|"></li>
             <li th:text="|${information[rowStat.index + 1].getKeyword9()}|"></li>
             <li th:text="|${information[rowStat.index + 1].getKeyword10()}|"></li>
+            <img th:src="|${information[rowStat.index + 1].getImg()}|"></img>
           </ul>
           <button class="closeBtn">닫기</button>
         </div>
@@ -205,6 +212,7 @@
             <li th:text="|${information[rowStat.index + 2].getKeyword8()}|"></li>
             <li th:text="|${information[rowStat.index + 2].getKeyword9()}|"></li>
             <li th:text="|${information[rowStat.index + 2].getKeyword10()}|"></li>
+            <img th:src="|${information[rowStat.index + 2].getImg()}|"></img>
           </ul>
           <button class="closeBtn">닫기</button>
         </div>
@@ -227,6 +235,7 @@
             <li th:text="|${information[rowStat.index + 3].getKeyword8()}|"></li>
             <li th:text="|${information[rowStat.index + 3].getKeyword9()}|"></li>
             <li th:text="|${information[rowStat.index + 3].getKeyword10()}|"></li>
+            <img th:src="|${information[rowStat.index + 3].getImg()}|"></img>
           </ul>
           <button class="closeBtn">닫기</button>
         </div>
@@ -237,9 +246,22 @@
 <!--information button end-->
 <footer th:insert="~{/footer.html}"></footer>
 <!--information button javascript start-->
-<script type="text/javascript" th:src="@{/js/popup.js}">
-
+<!--<script type="text/javascript" th:src="@{/js/popup.js}"></script>-->
+<!--<script type="text/javascript" th:src="@{/js/chart.js}"></script>-->
+<!--<script type="module" th:inline="javascript">-->
+<!--  import {chart} from '/js/chart.js'-->
+<!--  const a = [[${mbti}]]-->
+<!--  chart(a)-->
+<!--</script>-->
+<script type="text/javascript" th:src="@{/js/popup.js}"></script>
+<script th:inline="javascript">
+  console.log('gd')
+    const a = [[${information}]]
+    console.log(a)
 </script>
+<!--<script th:inline="javascript">-->
+
+<!--</script>-->
 <!--information button javascript end-->
 </body>
 </html>

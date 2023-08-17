@@ -16,6 +16,7 @@ public class Information {
     private String keyword8;
     private String keyword9;
     private String keyword10;
+    private String img;
 
     public Information() {
     }

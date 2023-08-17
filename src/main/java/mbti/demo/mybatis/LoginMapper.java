@@ -1,6 +1,5 @@
 package mbti.demo.mybatis;
 
-import mbti.demo.domain.Cultural;
 import mbti.demo.domain.Login;
 import org.apache.ibatis.annotations.Mapper;
 

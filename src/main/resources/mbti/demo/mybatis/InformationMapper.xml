@@ -16,7 +16,8 @@
             keyword7,
             keyword8,
             keyword9,
-            keyword10
+            keyword10,
+            img
         from information
     </select>
 </mapper>
