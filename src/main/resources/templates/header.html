@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
+        <link rel="stylesheet" type="text/css" th:href="@{/css/header.css}" >
         <title>Project_Mbti</title>
         <style>
             .navbar {
@@ -41,6 +42,7 @@
                 align-items: center;
                 justify-content: space-between;
             }
+
             .navbar-brand {
                 padding-top: var(--bs-navbar-brand-padding-y);
                 padding-bottom: var(--bs-navbar-brand-padding-y);
@@ -94,6 +96,10 @@
             #mainNav .navbar-nav .nav-item .nav-link.active {
                 color: #3E7DAB !important;
             }
+
+
+
+
             @media (min-width: 992px) {
                 #mainNav {
                     box-shadow: none;
@@ -131,6 +137,7 @@
                 #mainNav.navbar-shrink .navbar-nav .nav-item .nav-link:hover {
                     color: #3E7DAB;
                 }
+
             }
 
             @media (min-width: 576px) {
@@ -332,6 +339,7 @@
                 margin-bottom: 0;
                 list-style: none;
             }
+
             .ms-auto {
                 margin-left: auto !important;
             }
@@ -389,14 +397,45 @@
         <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
             <div class="container px-4 px-lg-5">
                 <a class="navbar-brand" href="main.html" th:href="@{/}">MBTI</a>
-<!--                <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>-->
                 <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav ms-auto my-2 my-lg-0">
+                    <div class="navbar-nav ms-auto my-2 my-lg-0">
                         <li class="nav-item"><a class="nav-link" href="mbti_information.html" th:href="@{/about}">About</a></li>
-                        <li class="nav-item"><a class="nav-link" th:href="@{/book/AnalystType}">Book</a></li>
-                        <li class="nav-item"><a class="nav-link" th:href="@{/movie/analyst}">Movie</a></li>
-                        <li class="nav-item"><a class="nav-link" th:href="@{/culture}">Culture</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#Community">Community</a></li>
+                        <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" th:href="@{/best/findAll}" role="button" data-toggle="dropdown">Book</a>
+                            <div class="dropdown-menu">
+                                <ul>
+                                    <li><a class="dropdown-item" th:href="@{/best/findAll}">베스트 셀러</a></li>
+                                    <li><a class="dropdown-item" th:href="@{/book/AnalystType}">분석가형(_NT_)</a></li>
+                                    <li><a class="dropdown-item" th:href="@{/book/DiplomaticType}">외교관형(_NF_)</a></li>
+                                    <li><a class="dropdown-item"th:href="@{/book/AdministratorType}">관리자형(_S_J)</a></li>
+                                    <li><a class="dropdown-item" th:href="@{/book/ExplorerType}">탐험가형(_S_P)</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" th:href="@{/movie/box}" role="button" data-toggle="dropdown">Movie</a>
+                            <div class="dropdown-menu">
+                                <ul>
+                                    <li><a class="dropdown-item" th:href="@{/best/findAll}">박스 오피스</a></li>
+                                    <li><a class="dropdown-item" th:href="@{/movie/analyst}">분석가형(_NT_)</a></li>
+                                    <li><a class="dropdown-item" th:href="@{/movie/Diplomatic}">외교관형(_NF_)</a></li>
+                                    <li><a class="dropdown-item"th:href="@{/movie/administrator}">관리자형(_S_J)</a></li>
+                                    <li><a class="dropdown-item" th:href="@{/movie/explorer}">탐험가형(_S_P)</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" th:href="@{/}" role="button" data-toggle="dropdown">Music</a>
+                            <div class="dropdown-menu">
+                                <ul>
+                                    <li><a class="dropdown-item" th:href="@{/}">탑 100</a></li>
+                                    <li><a class="dropdown-item" th:href="@{/}">분석가형(_NT_)</a></li>
+                                    <li><a class="dropdown-item" th:href="@{/}">외교관형(_NF_)</a></li>
+                                    <li><a class="dropdown-item"th:href="@{/}">관리자형(_S_J)</a></li>
+                                    <li><a class="dropdown-item" th:href="@{/}">탐험가형(_S_P)</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" th:href="@{/}">Culture</a></li>
+                        <li class="nav-item"><a class="nav-link" th:href="@{/}">Community</a></li>
+
                     </ul>
                 </div>
             </div>

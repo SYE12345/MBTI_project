@@ -6,7 +6,7 @@
     text-align: center;
 }
 
-button {
+#button-back button{
     position: relative;
     background: #444;
     color: #fff;
@@ -17,9 +17,10 @@ button {
     font-size: 1rem;
     padding: 1rem 3rem;
     transition: 0.2s;
+    white-space: normal;
 }
 
-button:hover {
+#button-back button:hover {
     letter-spacing: 0.2rem;
     padding: 1.1rem 3.1rem;
     background: var(--clr);
@@ -28,24 +29,24 @@ button:hover {
     animation: box1 3s infinite;
 }
 
-button::before {
+#button-back button::before {
     content: "";
     position: absolute;
     inset: 2px;
     background: #272822;
 }
 
-button span {
+#button-back button span {
     position: relative;
     z-index: 1;
 }
-button i {
+#button-back button i {
     position: absolute;
     inset: 0;
     display: block;
 }
 
-button i::before {
+#button-back button i::before {
     content: "";
     position: absolute;
     width: 10px;
@@ -57,13 +58,13 @@ button i::before {
     transition: 0.2s;
 }
 
-button:hover i::before {
+#button-back button:hover i::before {
     width: 15px;
     left: 20%;
     animation: move 3s infinite;
 }
 
-button i::after {
+#button-back button i::after {
     content: "";
     position: absolute;
     width: 10px;
@@ -75,7 +76,7 @@ button i::after {
     transition: 0.2s;
 }
 
-button:hover i::after {
+#button-back button:hover i::after {
     width: 15px;
     left: 80%;
     animation: move 3s infinite;
@@ -177,6 +178,7 @@ h1{font-size: 2em}
     color: #000;
     border-radius: 10px;
 }
+
 .menu div {
     line-height: 1.5;
     font-size: 1em;

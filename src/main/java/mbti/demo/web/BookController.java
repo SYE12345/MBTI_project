@@ -24,6 +24,7 @@ public class BookController {
     @GetMapping("/AnalystType")
     public String findByAnalystType(@PageableDefault(size=10, sort = "title") Pageable pageable, Model model) {
         Page<Book> bookPage = bookServiceInterface.findByAnalystType(pageable);
+        System.out.println(bookPage);
         model.addAttribute("bookPage",bookPage);
         return "book/book1";
     }
@@ -48,13 +49,6 @@ public class BookController {
         model.addAttribute("bookPage",bookPage);
         return "book/book4";
     }
-
-
-//    @GetMapping("/")
-//    public String findAll() {
-//        log.info(bookService.findAll()+"");
-//        return "/index";
-//    }
 
 }
 

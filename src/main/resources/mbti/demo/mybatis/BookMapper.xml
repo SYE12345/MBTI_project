@@ -16,7 +16,9 @@
         select 제목 as title,
                이미지 as image,
                작가 as author,
-               출판사 as company
+               출판사 as company,
+               서술 as description,
+               링크 as link
         from Book
         where 서술 like '%과학%' or
             서술 like '%말하기%' or
@@ -28,7 +30,9 @@
         select 제목 as title,
                이미지 as image,
                작가 as author,
-               출판사 as company
+               출판사 as company,
+               서술 as description,
+               링크 as link
         from Book
         where 서술 like '%심리%' or
             서술 like '%외교%' or
@@ -40,7 +44,9 @@
         select 제목 as title,
                이미지 as image,
                작가 as author,
-               출판사 as company
+               출판사 as company,
+               서술 as description,
+               링크 as link
         from Book
         where 서술 like '%교양%' or
             서술 like '%경영%' or
@@ -53,7 +59,9 @@
         select 제목 as title,
                이미지 as image,
                작가 as author,
-               출판사 as company
+               출판사 as company,
+               서술 as description,
+               링크 as link
         from Book
         where 서술 like '%여행%' or
             서술 like '%유머%' or

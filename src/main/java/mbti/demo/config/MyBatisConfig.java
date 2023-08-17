@@ -1,16 +1,13 @@
 package mbti.demo.config;
 
 import lombok.RequiredArgsConstructor;
-import mbti.demo.mybatis.BookMapper;
-import mbti.demo.mybatis.MovieMapper;
-import mbti.demo.mybatis.MyBatisBookRepository;
-import mbti.demo.mybatis.MyBatisMovieRepository;
+import mbti.demo.mybatis.*;
+import mbti.demo.repository.BestBookInterface;
 import mbti.demo.repository.BookInterface;
-import mbti.demo.repository.MovieRepository;
 import mbti.demo.service.BookService;
 import mbti.demo.service.BookServiceInterface;
-import mbti.demo.service.MovieService;
-import mbti.demo.service.MovieServiceInterface;
+import mbti.demo.service.BestBookService;
+import mbti.demo.service.BestBookServiceInterface;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -20,6 +17,7 @@ public class MyBatisConfig {
 
     private final MovieMapper movieMapper;
     private final BookMapper bookMapper;
+    private final BestBookMapper bestBookMapper;
 
 
     @Bean
@@ -38,6 +36,15 @@ public class MyBatisConfig {
     @Bean
     public BookInterface bookInterface() {
         return new MyBatisBookRepository(bookMapper);
+    }
+
+    @Bean
+    public BestBookServiceInterface bestbookServiceInterface() {
+        return new BestBookService(bestbookInterface());
+    }
+    @Bean
+    public BestBookInterface bestbookInterface() {
+        return new MyBatisBestBookRepository(bestBookMapper);
     }
 }
 
