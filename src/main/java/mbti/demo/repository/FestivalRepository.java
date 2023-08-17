@@ -1,6 +1,6 @@
 package mbti.demo.repository;
 
-import mbti.demo.domain.Cultural;
+
 import mbti.demo.domain.Festival;
 
 import java.util.List;

@@ -10,7 +10,7 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public class InformationService implements InformationServi {
+public class InformationService implements InformationServiceInterface{
     private final InformationInterface informationInterface;
 
     @Override
