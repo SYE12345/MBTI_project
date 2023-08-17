@@ -16,13 +16,13 @@ import java.util.List;
 @Slf4j
 @RequiredArgsConstructor
 public class InformationController {
-    private final InformationServi informationServiceInterface;
+    private final InformationServi informationServi;
     private final MbtiInterface mbtiInterface;
 
 
     @GetMapping("/about")
     public String All_list(Model model){
-        List<Information> information = informationServiceInterface.findAll();
+        List<Information> information = informationServi.findAll();
         List<MbtiVO> mbti = mbtiInterface.getAll();
         model.addAttribute("information",information);
         model.addAttribute("mbti",mbti);
