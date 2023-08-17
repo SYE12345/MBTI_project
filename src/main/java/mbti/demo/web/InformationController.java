@@ -5,7 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import mbti.demo.domain.Information;
 
 import mbti.demo.domain.MbtiVO;
-import mbti.demo.service.InformationServi;
+import mbti.demo.service.InformationServiceInterface;
 import mbti.demo.service.MbtiInterface;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,7 +16,7 @@ import java.util.List;
 @Slf4j
 @RequiredArgsConstructor
 public class InformationController {
-    private final InformationServi informationServiceInterface;
+    private final InformationServiceInterface informationServiceInterface;
     private final MbtiInterface mbtiInterface;
 
 
@@ -28,11 +28,5 @@ public class InformationController {
         model.addAttribute("mbti",mbti);
         return "mbti_Information";
 
-//   @GetMapping("/about")
-//    public String All_list(Model model){
-//            List<Information> information = informationServiceInterface.findAll();
-//            model.addAttribute("information", information);
-//            return "mbti_information";
-//        }
     }
 }
