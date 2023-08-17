@@ -2,6 +2,7 @@ package mbti.demo.mybatis;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import mbti.demo.domain.BoxMovie;
 import mbti.demo.domain.Movie;
 import mbti.demo.repository.MovieRepository;
 import org.apache.ibatis.session.RowBounds;
@@ -79,6 +80,25 @@ public class MyBatisMovieRepository implements MovieRepository {
         RowBounds rowBounds = new RowBounds(offset, limit);
         return movieMapper.findMoviesWithPaging(rowBounds);
     }
+
+    // 박스오피스
+    @Override
+    public List<BoxMovie> findByDailyBox(int offset, int limit) {
+        RowBounds rowBounds = new RowBounds(offset, limit);
+        return movieMapper.findByDailyBox(rowBounds);
+    }
+
+    @Override
+    public List<BoxMovie> findBoxMoviesWithPaging(int offset, int limit) {
+        RowBounds rowBounds = new RowBounds(offset, limit);
+        return movieMapper.findBoxMoviesWithPaging(rowBounds);
+    }
+
+    @Override
+    public long countTotalBoxMovies() {
+        return movieMapper.countTotalBoxMovies();
+    }
+
 
     @Override
     public long countTotalMovies() {

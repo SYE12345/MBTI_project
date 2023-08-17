@@ -1,5 +1,6 @@
 package mbti.demo.service;
 
+import mbti.demo.domain.BoxMovie;
 import mbti.demo.domain.Movie;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -27,6 +28,10 @@ public interface MovieServiceInterface {
 //    List<Movie> findByExplorerType();
     // 페이징용
     Page<Movie> findByExplorerType(Pageable pageable);
+
+    // 박스오피스
+    Page<BoxMovie> findByDailyBox(Pageable pageable);
+    Page<BoxMovie> findBoxMoviesWithPaging(Pageable pageable);
 
     // 일반
 //    List<Movie> findAll();

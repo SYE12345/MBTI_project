@@ -14,5 +14,6 @@ public class Movie {
     private String representativeNation;
     private String representativeGenre;
     private String URL;
+    private String information;
 
 }

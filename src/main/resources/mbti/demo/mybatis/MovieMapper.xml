@@ -16,9 +16,10 @@
         영화장르 AS genre,
         대표제작국가명 AS representativeNation,
         대표장르명 AS representativeGenre,
-        URL
+        URL,
+        영화정보 AS information
         from Movie
-        where 영화장르 = #{genre} AND 국문영화명 LIKE '%가%'
+        where 영화장르 = #{genre}
 --         ORDER BY
     </select>
 
@@ -33,7 +34,8 @@
             영화장르 AS genre,
             대표제작국가명 AS representativeNation,
             대표장르명 AS representativeGenre,
-            URL
+            URL,
+            영화정보 AS information
         from Movie
         where 영화장르 LIKE '%SF%' OR 영화장르 LIKE '%판타지%' OR 영화장르 LIKE '%공포(호러)%' OR 영화장르 LIKE '%애니메이션%'
 --         ORDER BY
@@ -50,7 +52,8 @@
             영화장르 AS genre,
             대표제작국가명 AS representativeNation,
             대표장르명 AS representativeGenre,
-            URL
+            URL,
+            영화정보 AS information
         from Movie
         where 영화장르 LIKE '%드라마%' OR 영화장르 LIKE '%가족%' OR 영화장르 LIKE '%멜로/로맨스%' OR 영화장르 LIKE '%코미디%'
 --         ORDER BY
@@ -67,7 +70,8 @@
             영화장르 AS genre,
             대표제작국가명 AS representativeNation,
             대표장르명 AS representativeGenre,
-            URL
+            URL,
+            영화정보 AS information
         from Movie
         where 영화장르 LIKE '%범죄%' OR 영화장르 LIKE '%스릴러%' OR 영화장르 LIKE '%사극%' OR 영화장르 LIKE '%전쟁%' OR 영화장르 LIKE '%다큐멘터리%' OR 영화장르 LIKE '%액션%'
 --         ORDER BY
@@ -84,10 +88,28 @@
             영화장르 AS genre,
             대표제작국가명 AS representativeNation,
             대표장르명 AS representativeGenre,
-            URL
+            URL,
+            영화정보 AS information
         from Movie
         where 영화장르 LIKE '%미스터리%' OR 영화장르 LIKE '%어드벤처%' OR 영화장르 LIKE '%뮤지컬%' OR 영화장르 LIKE '%코미디%' OR 영화장르 LIKE '%애니메이션%'
 --         ORDER BY
+    </select>
+
+    <select id="findByDailyBox" resultType="BoxMovie">
+        select
+            당일영화순위 AS rank,
+            전일대비순위증감분 AS rankInten,
+            랭킹신규진입여부 AS rankOldAndNew,
+            영화대표코드 AS movieCd,
+            국문영화명 AS movieNm,
+            영화개봉일 AS openDt,
+            당일관객수 AS audiCnt,
+            전일대비관객수증감 AS audiInten,
+            누적관객수 AS audiAcc,
+            URL AS boxURL,
+            영화정보 AS boxInfo,
+            예매URL AS bookingURL
+        from BOX_MOVIE  -- 이거 바꿔야 되는지 아닌지 기억이 안남
     </select>
 
     <select id="findMoviesWithPaging" resultType="Movie">
@@ -102,10 +124,15 @@
         영화장르 AS genre,
         대표제작국가명 AS representativeNation,
         대표장르명 AS representativeGenre,
-        URL
+        URL,
+        영화정보 AS information
 
         from Movie
 
+    </select>
+
+    <select id="countTotalBoxMovies" resultType="long">
+        SELECT COUNT(*) FROM BOX_MOVIE
     </select>
 
     <select id="countTotalMovies" resultType="long">

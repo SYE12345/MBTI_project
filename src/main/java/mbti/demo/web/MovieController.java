@@ -2,11 +2,14 @@ package mbti.demo.web;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import mbti.demo.domain.BoxMovie;
 import mbti.demo.domain.Movie;
 import mbti.demo.service.MovieService;
 import mbti.demo.service.MovieServiceInterface;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -63,16 +66,31 @@ public class MovieController {
     @GetMapping("/explorer") //@PathVariable long itemId,
     public String ExplorerTypeMovie(@PageableDefault(size = 10, sort = "name") Pageable pageable, Model model) {
         Page<Movie> movie = movieServiceInterface.findByExplorerType(pageable);
+        System.out.println(movie.getSize());
+        System.out.println(movie.getTotalElements());
         model.addAttribute("movies", movie);
         return "/movie/explorer";
 //        return "/movie/movieList";
 
     }
 
+    // 박스오피스
+    @GetMapping("/box")
+    public String BoxMovie(@PageableDefault( size = 10, sort = "rank") Pageable pageable, Model model) {
+        Page<BoxMovie> boxMoviePage = movieServiceInterface.findByDailyBox(pageable);
+        model.addAttribute("boxMoviePage", boxMoviePage);
+        return "/movie/box_movie";
+
+    }
+
     @GetMapping("/list")
-    public String getMovieList(@PageableDefault(size = 10, sort = "name") Pageable pageable, Model model) {
+    public String getMovieList(@PageableDefault( size = 10, sort = "rank" , direction = Sort.Direction.DESC) Pageable pageable, Model model) {
         Page<Movie> moviePage = movieServiceInterface.findMoviesWithPaging(pageable);
         model.addAttribute("moviePage", moviePage);
+        // 박스오피스 실험용
+        Page<BoxMovie> boxMoviePage = movieServiceInterface.findByDailyBox(pageable);
+        System.out.println(boxMoviePage);
+        model.addAttribute("boxMoviePage", boxMoviePage);
         return "/movie/movieList";
     }
 //    @GetMapping("/post")

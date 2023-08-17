@@ -7,9 +7,9 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" href="/css/movie_popup/style.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" type="text/css" th:href="@{/css/listCSS.css}" >
-<!--    <link rel="stylesheet" type="text/css" th:href="@{/css/listCSS1.css}" >-->
     <style>
         @font-face {
             font-family: 'Dovemayo_gothic';
@@ -26,7 +26,6 @@
         }
     </style>
 
-
 </head>
 <body>
 <div th:include="header.html"></div>
@@ -39,6 +38,7 @@
             <li><a th:href="@{/movie/Diplomatic}" class="item"><div>외교관형(_NF_)</div></a></li>
             <li><a th:href="@{/movie/administrator}" class="item"><div>관리자형(_S_J)</div></a></li>
             <li><a th:href="@{/movie/explorer}" class="item"><div>탐험가형(_S_P)</div></a></li>
+            <li><a th:href="@{/movie/box}" class="item"><div>박스오피스</div></a></li>
 
         </ul>
     </div>
@@ -53,35 +53,31 @@
         <button style="--clr:#8A2BE2"><span>#ENTP</span><i></i></button>
     </div>
 
-    <span id="displayCount"></span>
-    <table id="dataTableBody">
-        <!-- 전에 해놨었던거 -->
-        <tr th:each="movie: ${movies.content}">
-            <td>
-                <!--                <img th:src="@{${movie.URL}}">-->
-<!--                <div class="list-info">-->
-                    <img th:src="@{${movie.URL != null ? movie.URL : ''}}">
-                    <div class="movie-box"></div>
-<!--                    <div class="list-info">-->
-                    <!--                    <h3 th:text="|제목: ${movie.name}|"></h3>-->
-                    <h3 th:text="|제목: ${movie.name != null ? movie.name : ''}|"></h3>
-                    <!--                    <h4 th:text="|개봉일: ${movie.opening}|"></h4>-->
-                    <h4 th:text="|개봉일: ${movie.opening != null ? movie.opening : ''}|"></h4>
-                    <!--                    <h4 th:text="|장르: ${movie.genre}|"></h4>-->
-                    <h4 th:text="|장르: ${movie.genre != null ? movie.genre : ''}|"></h4>
-<!--                </div>-->
-            </td>
-        </tr>
-    </table>
-    <div>
-        <span>Pages:</span>
-        <span th:each="pageNumber : ${#numbers.sequence(1, movies.totalPages)}">
-    <a th:href="@{/movie/analyst(page=${pageNumber})}" th:text="${pageNumber}"></a>
-</span>
-    </div>
 </section>
+
+<form id="form1">
+
+</form>
+
+<form id="form2">
+
+</form>
+
+<!-- 페이징 목록 -->
+<span>Pages:</span>
+<span th:each="pageNumber : ${#numbers.sequence(0, movies.totalPages)}">
+    <a th:href="@{/movie/analyst(page=${pageNumber})}" th:text="${pageNumber + 1}"></a>
+</span>
+</div>
+
 <div class="footer_wrap" th:include="footer.html"></div>
 
+<script type="module" th:inline="javascript">
+    import {MovieForm} from '/js/movie/popup.js'
+    let list = [[${movies.content}]]
+    console.log(list)
+    MovieForm(list)
+</script>
 
 </body>
 </html>

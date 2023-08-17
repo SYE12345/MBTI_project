@@ -2,6 +2,7 @@ package mbti.demo.service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import mbti.demo.domain.BoxMovie;
 import mbti.demo.domain.Movie;
 import mbti.demo.mybatis.MovieMapper;
 import mbti.demo.repository.MovieRepository;
@@ -103,6 +104,33 @@ public class MovieService implements MovieServiceInterface {
         return new PageImpl<>(movieList, pageable, totalCount);
     }
 
+    // 박스오피스
+    @Override
+    public Page<BoxMovie> findByDailyBox(Pageable pageable) {
+        int offset = pageable.getPageNumber() * pageable.getPageSize();
+        int limit = pageable.getPageSize();
+        RowBounds rowBounds = new RowBounds(offset, limit);
+
+        List<BoxMovie> movieList = movieMapper.findByDailyBox(rowBounds);
+        long totalCount = movieMapper.countTotalBoxMovies();
+
+        return new PageImpl<>(movieList, pageable, totalCount);
+    }
+
+    @Override
+    public Page<BoxMovie> findBoxMoviesWithPaging(Pageable pageable) {
+        int offset = pageable.getPageNumber() * pageable.getPageSize();
+        int limit = pageable.getPageSize();
+        RowBounds rowBounds = new RowBounds(offset, limit);
+
+        List<BoxMovie> boxMovieList = movieMapper.findBoxMoviesWithPaging(rowBounds);
+        long totalCount = movieMapper.countTotalBoxMovies();
+
+        return new PageImpl<>(boxMovieList, pageable, totalCount);
+    }
+
+
+    // 페이징
     @Override
     public Page<Movie> findMoviesWithPaging(Pageable pageable) {
         int offset = pageable.getPageNumber() * pageable.getPageSize();

@@ -26,7 +26,6 @@
         }
     </style>
 
-
 </head>
 <body>
 <div th:include="header.html"></div>
@@ -45,14 +44,8 @@
     </div>
 </aside>
 <section id="list-section">
-    <h1>유형별 영화추천 페이지</h1>
-    <h2>관리자형(_S_J)</h2>
-    <div class="button" id="button-back"> <!-- 유형별 MBTi 나열-->
-        <button style="--clr:#39FF14"><span>#ISTJ</span><i></i></button>
-        <button style="--clr:#FF44CC"><span>#ISFJ</span><i></i></button>
-        <button style="--clr:#0FF0FC"><span>#ESTJ</span><i></i></button>
-        <button style="--clr:#8A2BE2"><span>#ESFJ</span><i></i></button>
-    </div>
+    <h1>일일 박스오피스</h1>
+
 
 </section>
 
@@ -65,18 +58,18 @@
 </form>
 
 <!-- 페이징 목록 -->
-<div>
-    <span>Pages:</span>
-    <span th:each="pageNumber : ${#numbers.sequence(0, moviePage.totalPages)}">
-    <a th:href="@{/movie/administrator(page=${pageNumber})}" th:text="${pageNumber + 1}"></a>
-</span>
-</div>
+<!--<div>-->
+<!--    <span>Pages:</span>-->
+<!--    <span th:each="pageNumber : ${#numbers.sequence(1, movies.totalPages)}">-->
+<!--    <a th:href="@{/movie/Diplomatic(page=${pageNumber})}" th:text="${pageNumber}"></a>-->
+<!--</span>-->
+<!--</div>-->
 
 <div class="footer_wrap" th:include="footer.html"></div>
 
 <script type="module" th:inline="javascript">
-    import {MovieForm} from '/js/movie/popup.js'
-    let list = [[${moviePage.content}]]
+    import {MovieForm} from '/js/movie/box_popup.js'
+    let list = [[${boxMoviePage.content}]]
     console.log(list)
     MovieForm(list)
 </script>

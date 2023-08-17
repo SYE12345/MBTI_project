@@ -1,5 +1,6 @@
 package mbti.demo.repository;
 
+import mbti.demo.domain.BoxMovie;
 import mbti.demo.domain.Movie;
 
 import java.util.List;
@@ -31,6 +32,11 @@ public interface MovieRepository {
 //    List<Movie> findAll();
     // 페이징용
     List<Movie> findMoviesWithPaging(int offset, int limit);
+
+    // 박스오피스용
+    List<BoxMovie> findByDailyBox(int offset, int limit);
+    List<BoxMovie> findBoxMoviesWithPaging(int offset, int limit);
+    long countTotalBoxMovies();
 
     // 전체 영화 수를 가져오는 메서드
     long countTotalMovies();
