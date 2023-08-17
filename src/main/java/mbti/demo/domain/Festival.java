@@ -2,8 +2,10 @@ package mbti.demo.domain;
 import lombok.Data;
 
 @Data
-public class Museum {
-    private String museum;
+public class Festival {
+    private String festival;
+    private String day;
+    private String place;
     private String x;
     private String y;
     private byte[] picture;
@@ -11,9 +13,9 @@ public class Museum {
     @Override
     public String toString() {
         return "Drama{" +
-                "numb=" + museum +
-                ", title1='" + x + '\'' +
-                ", startDay='" + y + '\'' +
+                "numb=" + festival +
+                ", title1='" + day + '\'' +
+                ", startDay='" + place + '\'' +
                 ", endDay='" + picture + '\'' +
                 '}';
     }

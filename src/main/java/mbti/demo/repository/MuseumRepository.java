@@ -1,5 +1,6 @@
 package mbti.demo.repository;
 
+import mbti.demo.domain.Cinema;
 import mbti.demo.domain.Museum;
 
 import java.util.List;
