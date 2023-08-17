@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>유형별 책추천 페이지</title>
+    <link rel="stylesheet" href="/css/book/style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/listCSS.css}" >
+    <style>
+        @font-face {
+            font-family: 'Dovemayo_gothic';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.1/Dovemayo_gothic.woff2') format('woff2');
+            font-weight: normal;
+            font-style: normal;
+        }
+        *{
+            font-family: 'Dovemayo_gothic';
+        }
+        body {
+            padding-top: 50px;
+            background-color: #E0E0E0;
+        }
+        .paging{
+           display: block;
+            text-align: center;
+            float: none;
+        }
+    </style>
+</head>
+<body>
+<div th:include="header.html"></div>
+<br>
+<section id="list-section">
+    <h1>유형별 영화추천 페이지</h1>
+    <br>
+    <h2>분석가형(_NT_)</h2>
+    <br>
+    <div id="button-back"> <!-- 유형별 MBTi 나열-->
+        <button style="--clr:#39FF14"><span>#INTJ </span><i></i></button>
+        <button style="--clr:#FF44CC"><span>#INTP </span><i></i></button>
+        <button style="--clr:#0FF0FC"><span>#ENTJ </span><i></i></button>
+        <button style="--clr:#8A2BE2"><span>#ENTP </span><i></i></button>
+    </div>
+
+</section>
+
+<form id="form1">
+
+</form>
+
+<form id="form2">
+
+</form>
+<!-- 페이징 목록 -->
+<div class="paging">
+    <span >Pages:</span>
+    <span th:each="pageNumber : ${#numbers.sequence(0, bookPage.totalPages)}">
+    <a  th:href="@{/book/AnalystType(page=${pageNumber})}" th:text="${pageNumber+1}"></a>
+</span>
+</div>
+<div class="footer_wrap" th:include="footer.html"></div>
+
+
+<script type="module" th:inline="javascript">
+    import {bookForm} from '/js/book/popup(수정).js'
+    let list = [[${bookPage.content}]]
+    bookForm(list)
+</script>
+
+
+
+</body>
+</html>
