@@ -1,0 +1,240 @@
+/* MBTI 유형 버튼 */
+#button-back {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+#button-back button{
+    position: relative;
+    background: #444;
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    border: none;
+    letter-spacing: 0.1rem;
+    font-size: 1rem;
+    padding: 1rem 3rem;
+    transition: 0.2s;
+    white-space: normal;
+}
+
+#button-back button:hover {
+    letter-spacing: 0.2rem;
+    padding: 1.1rem 3.1rem;
+    background: var(--clr);
+    color: var(--clr);
+    /* box-shadow: 0 0 35px var(--clr); */
+    animation: box1 3s infinite;
+}
+
+#button-back button::before {
+    content: "";
+    position: absolute;
+    inset: 2px;
+    background: #272822;
+}
+
+#button-back button span {
+    position: relative;
+    z-index: 1;
+}
+#button-back button i {
+    position: absolute;
+    inset: 0;
+    display: block;
+}
+
+#button-back button i::before {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 2px;
+    left: 80%;
+    top: -2px;
+    border: 2px solid var(--clr);
+    background: #272822;
+    transition: 0.2s;
+}
+
+#button-back button:hover i::before {
+    width: 15px;
+    left: 20%;
+    animation: move 3s infinite;
+}
+
+#button-back button i::after {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 2px;
+    left: 20%;
+    bottom: -2px;
+    border: 2px solid var(--clr);
+    background: #272822;
+    transition: 0.2s;
+}
+
+#button-back button:hover i::after {
+    width: 15px;
+    left: 80%;
+    animation: move 3s infinite;
+}
+
+@keyframes move {
+    0% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(5px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes box1 {
+    0% {
+        box-shadow: #27272c;
+    }
+    50% {
+        box-shadow: 0 0 25px var(--clr);
+    }
+    100% {
+        box-shadow: #27272c;
+    }
+}
+
+body{min-width:1024px;}
+#list-section{
+    width: 710px;
+    border: 2px;
+    box-sizing: border-box;
+    margin: auto;
+}
+h1,h2,p{text-align: center}
+h1{font-size: 2em}
+
+#list-aside{
+    position: fixed;
+    margin-left: 20%;
+    padding: 60px 16px;
+    width: 500px;
+    height: 500px;
+
+}
+
+/*사이드 메뉴*/
+.menu ::before{
+    font-family: 'Material Icons';
+    font-size: 1.5em;
+    float: left;
+    clear: left;
+}
+.menu label::before{ content: '\e5d2'; }
+.menu li:nth-child(1) a::before{ content: '\f02e'; }
+.menu li:nth-child(2) a::before{ content: '\e8d6'; }
+.menu li:nth-child(3) a::before{ content: '\e87d'; } /*\e88a*/
+.menu li:nth-child(4) a::before{ content: '\e8cc'; } /*e8b8*/
+
+
+#expand-menu { /* 체크박스 폼 요소 감춤 */
+    display: none;
+}
+#expand-menu:checked ~ ul { /* 체크박스 체크되었으면 메뉴 목록 표시 - 반응형 표시용 */
+    display: block;
+    height: auto;
+}
+.menu {
+    display: block;
+    width: 200px;
+    background-color: #000;
+    color: #fff;
+    border-radius: 20px;
+    padding: 10px;
+    box-sizing: border-box;
+    overflow: hidden; /* 반응형 애니메이션용 */
+    transition: all 0.5s ease; /* 반응형 애니메이션 */
+}
+.menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.menu a, .menu > label {
+    display: block;
+    height: 25px;
+    padding: 8px;
+    cursor: pointer;
+    color: #fff;
+    text-decoration: none;
+}
+.menu a:hover {
+    color: #000;
+}
+.menu ul li:hover, .menu > label:hover {
+    background-color: #fff;
+    color: #000;
+    border-radius: 10px;
+}
+
+.menu div {
+    line-height: 1.5;
+    font-size: 1em;
+    font-family: 'Noto Sans KR';
+    padding: 0 0 0 50px; /* 아이콘과 텍스트 사이 여백 */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+table td {
+    text-align: center;
+    padding: 10px;
+    width: 200px;
+    height: 500px;
+}
+img {
+    width: 175px;
+    height: 250px;
+}
+.list-info {
+    width: 200px;
+    text-align: center;
+}
+.a{
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    line-height: 1.8;
+    overflow: hidden;
+}
+.box{
+    content: "";
+    z-index: 2;
+    /*position: absolute;*/
+    /*top: 172px;*/
+    left: 0;
+    right: 0;
+    height: 14px;
+    box-sizing: border-box;
+    border-top: 1px solid #e6c46d; !important;
+    border-bottom: 1px solid #e6c46d; !important;
+    background-color: #9f7e61; !important;
+}
+
+.movie-box{
+    content: "";
+    z-index: 2;
+    /*position: absolute;*/
+    /*top: 172px;*/
+    left: 0;
+    right: 0;
+    height: 14px;
+    box-sizing: border-box;
+    border-top: 1px solid #e6c46d; !important;
+    border-bottom: 1px solid #e6c46d; !important;
+    background-color: #9f7e61; !important;
+}
