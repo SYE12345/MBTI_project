@@ -1,9 +1,7 @@
 package mbti.demo.service;
 
 import lombok.RequiredArgsConstructor;
-import mbti.demo.domain.Cultural;
 import mbti.demo.domain.Festival;
-import mbti.demo.repository.CulturalRepository;
 import mbti.demo.repository.FestivalRepository;
 import org.springframework.stereotype.Service;
 

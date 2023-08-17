@@ -4,10 +4,8 @@ import lombok.RequiredArgsConstructor;
 import mbti.demo.mybatis.*;
 import mbti.demo.repository.BestBookInterface;
 import mbti.demo.repository.BookInterface;
-import mbti.demo.service.BookService;
-import mbti.demo.service.BookServiceInterface;
-import mbti.demo.service.BestBookService;
-import mbti.demo.service.BestBookServiceInterface;
+import mbti.demo.repository.MovieRepository;
+import mbti.demo.service.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

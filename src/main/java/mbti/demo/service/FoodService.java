@@ -2,10 +2,10 @@ package mbti.demo.service;
 
 import lombok.RequiredArgsConstructor;
 import mbti.demo.domain.Food;
-import mbti.demo.domain.Museum;
+
 import mbti.demo.repository.FestivalRepository;
 import mbti.demo.repository.FoodRepository;
-import mbti.demo.repository.MuseumRepository;
+
 import org.springframework.stereotype.Service;
 
 import java.util.List;

@@ -14,7 +14,6 @@ public class JunAllCon {
     private final CinemaMapper cinemaMapper;
     private final FestivalMapper festivalMapper;
     private final FoodMapper foodMapper;
-    private final MuseumMapper museumMapper;
 
     @Bean
     public CafeRepository cafeRepository(){
@@ -49,12 +48,5 @@ public class JunAllCon {
     public FoodService foodService() {
         return new FoodService(foodRepository());
     }
-    @Bean
-    public MuseumRepository museumRepository() {
-        return new MyBatisMuseumRepository(museumMapper);
-    }
-    @Bean
-    public MuseumService museumService() {
-        return new MuseumService(museumRepository());
-    }
+
 }
