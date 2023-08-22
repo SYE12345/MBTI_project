@@ -51,6 +51,7 @@
 <script type="module" th:inline="javascript">
   import {recommendations} from '/js/recommend_popup.js'
   let list = [[${recommendations.content}]]
+  MovieForm(recommendations)
 </script>
 </body>
 </html>
