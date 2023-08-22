@@ -3,6 +3,7 @@ package mbti.demo.mybatis;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import mbti.demo.domain.BoxMovie;
+import mbti.demo.domain.BoxRank;
 import mbti.demo.domain.Movie;
 import mbti.demo.repository.MovieRepository;
 import org.apache.ibatis.session.RowBounds;
@@ -105,4 +106,55 @@ public class MyBatisMovieRepository implements MovieRepository {
         return movieMapper.countTotalMovies();
     }
 
+
+    // 랭크용
+    @Override
+    public List<BoxRank> firstRank() {
+        return movieMapper.firstRank();
+    }
+
+    @Override
+    public List<BoxRank> secondRank() {
+        return movieMapper.secondRank();
+    }
+
+    @Override
+    public List<BoxRank> thirdRank() {
+        return movieMapper.thirdRank();
+    }
+
+    @Override
+    public List<BoxRank> fourthRank() {
+        return movieMapper.fourthRank();
+    }
+
+    @Override
+    public List<BoxRank> fifthRank() {
+        return movieMapper.fifthRank();
+    }
+
+    @Override
+    public List<BoxRank> sixthRank() {
+        return movieMapper.sixthRank();
+    }
+
+    @Override
+    public List<BoxRank> seventhRank() {
+        return movieMapper.seventhRank();
+    }
+
+    @Override
+    public List<BoxRank> eighthRank() {
+        return movieMapper.eighthRank();
+    }
+
+    @Override
+    public List<BoxRank> ninthRank() {
+        return movieMapper.ninthRank();
+    }
+
+    @Override
+    public List<BoxRank> tenthRank() {
+        return movieMapper.tenthRank();
+    }
 }

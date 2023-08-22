@@ -6,6 +6,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import mbti.demo.domain.BoxMovie;
+import mbti.demo.domain.BoxRank;
 import mbti.demo.domain.Movie;
 import mbti.demo.service.MovieService;
 import mbti.demo.service.MovieServiceInterface;
@@ -83,23 +84,56 @@ public class MovieController {
     }
 
     // 박스오피스
+//    @GetMapping("/box")
+//    public String BoxMovie(@PageableDefault( size = 10, sort = "rank") Pageable pageable, Model model) {
+//        Page<BoxMovie> boxMoviePage = movieServiceInterface.findByDailyBox(pageable);
+//        model.addAttribute("boxMoviePage", boxMoviePage);
+//
+//        return "/movie/box_movie";
+//    }
+
     @GetMapping("/box")
-    public String BoxMovie(@PageableDefault( size = 10, sort = "rank") Pageable pageable, Model model) {
+    public String BoxRank(@PageableDefault( size = 10, sort = "rank") Pageable pageable,Model model) {
         Page<BoxMovie> boxMoviePage = movieServiceInterface.findByDailyBox(pageable);
         model.addAttribute("boxMoviePage", boxMoviePage);
-        return "/movie/box_movie";
+        List<BoxRank> firstRank = movieServiceInterface.firstRank();
+        model.addAttribute("firstRank", firstRank);
+        List<BoxRank> secondRank = movieServiceInterface.secondRank();
+        model.addAttribute("secondRank", secondRank);
+        List<BoxRank> thirdRank = movieServiceInterface.thirdRank();
+        model.addAttribute("thirdRank", thirdRank);
+        List<BoxRank> fourthRank = movieServiceInterface.fourthRank();
+        model.addAttribute("fourthRank", fourthRank);
+        List<BoxRank> fifthRank = movieServiceInterface.fifthRank();
+        model.addAttribute("fifthRank", fifthRank);
+        List<BoxRank> sixthRank = movieServiceInterface.sixthRank();
+        model.addAttribute("sixthRank", sixthRank);
+        List<BoxRank> seventhRank = movieServiceInterface.seventhRank();
+        model.addAttribute("seventhRank", seventhRank);
+        List<BoxRank> eighthRank = movieServiceInterface.eighthRank();
+        model.addAttribute("eighthRank", eighthRank);
+        List<BoxRank> ninthRank = movieServiceInterface.ninthRank();
+        model.addAttribute("ninthRank", ninthRank);
+        List<BoxRank> tenthRank = movieServiceInterface.tenthRank();
+        model.addAttribute("tenthRank", tenthRank);
 
+        return "/movie/box_movie";
     }
 
     @GetMapping("/list")
-    public String getMovieList(@PageableDefault( size = 10, sort = "rank" , direction = Sort.Direction.DESC) Pageable pageable, Model model) {
-        Page<Movie> moviePage = movieServiceInterface.findMoviesWithPaging(pageable);
-        model.addAttribute("moviePage", moviePage);
-        // 박스오피스 실험용
-        Page<BoxMovie> boxMoviePage = movieServiceInterface.findByDailyBox(pageable);
-        System.out.println(boxMoviePage);
-        model.addAttribute("boxMoviePage", boxMoviePage);
+//    public String getMovieList(@PageableDefault( size = 10, sort = "rank" , direction = Sort.Direction.DESC) Pageable pageable, Model model) {
+    public String getMovieList(Model model) {
+//        Page<Movie> moviePage = movieServiceInterface.findMoviesWithPaging(pageable);
+//        model.addAttribute("moviePage", moviePage);
+//        // 박스오피스 실험용
+//        Page<BoxMovie> boxMoviePage = movieServiceInterface.findByDailyBox(pageable);
+//        System.out.println(boxMoviePage);
+//        model.addAttribute("boxMoviePage", boxMoviePage);
+        // 랭킹 실험용
+        List<BoxRank> firstRank = movieServiceInterface.firstRank();
+        model.addAttribute("firstRank",firstRank);
         return "/movie/movieList";
+
     }
 //    @GetMapping("/post")
 //    public Page<Movie> find(Pageable pageable) {

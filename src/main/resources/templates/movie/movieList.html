@@ -42,6 +42,13 @@
         <option value="20">20개씩보기</option>
     </select>
 </section>
+ <ul th:each="firstRank: ${firstRank.content}">
+     <li>
+         <div>
+             <p th:text="${firstRank.rankDate != null ? firstRank.rankDate : ''}">
+         </div>
+     </li>
+ </ul>
     <form id="form1">
        
     </form>
@@ -53,7 +60,7 @@
 <div class="footer_wrap" th:include="footer.html"></div>
 <script type="module" th:inline="javascript">
     import {MovieForm} from '/js/movie/box_popup.js'
-    let list = [[${boxMoviePage.content}]]
+    let list = [[${firstRank.content}]]
     console.log(list)
     MovieForm(list)
 </script>
