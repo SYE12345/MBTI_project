@@ -1,12 +1,17 @@
 package mbti.demo.domain;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
 import lombok.Data;
-
+@Entity
 @Data
 public class Member {
     // 시퀀스 자동 생성용 id
+    @Id
     private Long id;
     // 로그인 아이디(공백 불가)
     @NotBlank(message = "아이디는 띄어쓰기가 불가합니다.")
