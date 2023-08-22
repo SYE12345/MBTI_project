@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Movie Recommendations</title>
+</head>
+<body>
+<h1>Movie Recommendations</h1>
+<ul>
+  <li th:each="recommendationList : ${recommendations}">
+    <p th:text="${recommendationList[0]}"></p>
+    <p th:text="${recommendationList[1]}"></p>
+  </li>
+</ul>
+</body>
+</html>
