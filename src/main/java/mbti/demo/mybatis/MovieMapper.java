@@ -1,6 +1,7 @@
 package mbti.demo.mybatis;
 
 import mbti.demo.domain.BoxMovie;
+import mbti.demo.domain.BoxRank;
 import mbti.demo.domain.Movie;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.session.RowBounds;
@@ -46,5 +47,17 @@ public interface MovieMapper {
 
     // 페이징을 위한 신규 추가
     long countTotalMovies();
+
+    // 랭크용
+    List<BoxRank> firstRank();
+    List<BoxRank> secondRank();
+    List<BoxRank> thirdRank();
+    List<BoxRank> fourthRank();
+    List<BoxRank> fifthRank();
+    List<BoxRank> sixthRank();
+    List<BoxRank> seventhRank();
+    List<BoxRank> eighthRank();
+    List<BoxRank> ninthRank();
+    List<BoxRank> tenthRank();
 
 }

@@ -131,6 +131,96 @@
 
     </select>
 
+    <select id="firstRank" resultType="BoxRank">
+        select
+            rank,
+            RANK_DATE,
+            movieNm
+        from BOX_RANK_DATA  -- 이거 바꿔야 되는지 아닌지 기억이 안남
+        where movieNm in (select 국문영화명 from BOX_MOVIE where 당일영화순위 = 1)
+    </select>
+
+    <select id="secondRank" resultType="BoxRank">
+        select
+            rank,
+            RANK_DATE,
+            movieNm
+        from BOX_RANK_DATA  -- 이거 바꿔야 되는지 아닌지 기억이 안남
+        where movieNm in (select 국문영화명 from BOX_MOVIE where 당일영화순위 = 2)
+    </select>
+
+    <select id="thirdRank" resultType="BoxRank">
+        select
+            rank,
+            RANK_DATE,
+            movieNm
+        from BOX_RANK_DATA  -- 이거 바꿔야 되는지 아닌지 기억이 안남
+        where movieNm in (select 국문영화명 from BOX_MOVIE where 당일영화순위 = 3)
+    </select>
+
+    <select id="fourthRank" resultType="BoxRank">
+        select
+            rank,
+            RANK_DATE,
+            movieNm
+        from BOX_RANK_DATA  -- 이거 바꿔야 되는지 아닌지 기억이 안남
+        where movieNm in (select 국문영화명 from BOX_MOVIE where 당일영화순위 = 4)
+    </select>
+
+    <select id="fifthRank" resultType="BoxRank">
+        select
+            rank,
+            RANK_DATE,
+            movieNm
+        from BOX_RANK_DATA  -- 이거 바꿔야 되는지 아닌지 기억이 안남
+        where movieNm in (select 국문영화명 from BOX_MOVIE where 당일영화순위 = 5)
+    </select>
+
+    <select id="sixthRank" resultType="BoxRank">
+        select
+            rank,
+            RANK_DATE,
+            movieNm
+        from BOX_RANK_DATA  -- 이거 바꿔야 되는지 아닌지 기억이 안남
+        where movieNm in (select 국문영화명 from BOX_MOVIE where 당일영화순위 = 6)
+    </select>
+
+    <select id="seventhRank" resultType="BoxRank">
+        select
+            rank,
+            RANK_DATE,
+            movieNm
+        from BOX_RANK_DATA  -- 이거 바꿔야 되는지 아닌지 기억이 안남
+        where movieNm in (select 국문영화명 from BOX_MOVIE where 당일영화순위 = 7)
+    </select>
+
+    <select id="eighthRank" resultType="BoxRank">
+        select
+            rank,
+            RANK_DATE,
+            movieNm
+        from BOX_RANK_DATA  -- 이거 바꿔야 되는지 아닌지 기억이 안남
+        where movieNm in (select 국문영화명 from BOX_MOVIE where 당일영화순위 = 8)
+    </select>
+
+    <select id="ninthRank" resultType="BoxRank">
+        select
+            rank,
+            RANK_DATE,
+            movieNm
+        from BOX_RANK_DATA  -- 이거 바꿔야 되는지 아닌지 기억이 안남
+        where movieNm in (select 국문영화명 from BOX_MOVIE where 당일영화순위 = 9)
+    </select>
+
+    <select id="tenthRank" resultType="BoxRank">
+        select
+            rank,
+            RANK_DATE,
+            movieNm
+        from BOX_RANK_DATA  -- 이거 바꿔야 되는지 아닌지 기억이 안남
+        where movieNm in (select 국문영화명 from BOX_MOVIE where 당일영화순위 = 10)
+    </select>
+
     <select id="countTotalBoxMovies" resultType="long">
         SELECT COUNT(*) FROM BOX_MOVIE
     </select>

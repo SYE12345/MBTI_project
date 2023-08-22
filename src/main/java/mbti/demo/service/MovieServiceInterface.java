@@ -1,10 +1,12 @@
 package mbti.demo.service;
 
 import mbti.demo.domain.BoxMovie;
+import mbti.demo.domain.BoxRank;
 import mbti.demo.domain.Movie;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
+import java.util.List;
 import java.util.Optional;
 
 public interface MovieServiceInterface {
@@ -37,4 +39,18 @@ public interface MovieServiceInterface {
 //    List<Movie> findAll();
     // 페이징용
     Page<Movie> findMoviesWithPaging(Pageable pageable);
+
+    // 랭크용
+    List<BoxRank> firstRank();
+    List<BoxRank> secondRank();
+    List<BoxRank> thirdRank();
+    List<BoxRank> fourthRank();
+    List<BoxRank> fifthRank();
+    List<BoxRank> sixthRank();
+    List<BoxRank> seventhRank();
+    List<BoxRank> eighthRank();
+    List<BoxRank> ninthRank();
+    List<BoxRank> tenthRank();
 }
+
+

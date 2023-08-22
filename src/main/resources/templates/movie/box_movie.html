@@ -1,11 +1,14 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="https//www.thymeleaf.org">
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js" th:src="@{https://cdn.jsdelivr.net/npm/chart.js}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.0.0/dist/chart.min.js" th:src = "@{https://cdn.jsdelivr.net/npm/chart.js@3.0.0/dist/chart.min.js}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0" th:src = "@{https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0}"></script>
     <title>Document</title>
     <link rel="stylesheet" href="/css/movie_popup/style.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -35,20 +38,7 @@
 </head>
 <body>
 <div th:include="header.html"></div>
-<aside id="list-aside">
-    <div class="menu">
-        <label for="expand-menu"><div>MBTI 유형</div></label><hr>
-        <input type="checkbox" id="expand-menu" name="expand-menu">
-        <ul>
-            <li><a th:href="@{/movie/analyst}" class="item"><div>분석가형(_NT_)</div></a></li>
-            <li><a th:href="@{/movie/Diplomatic}" class="item"><div>외교관형(_NF_)</div></a></li>
-            <li><a th:href="@{/movie/administrator}" class="item"><div>관리자형(_S_J)</div></a></li>
-            <li><a th:href="@{/movie/explorer}" class="item"><div>탐험가형(_S_P)</div></a></li>
-            <li><a th:href="@{/movie/box}" class="item"><div>박스오피스</div></a></li>
 
-        </ul>
-    </div>
-</aside>
 <section id="list-section">
     <h1>일일 박스오피스</h1>
 
@@ -76,8 +66,18 @@
 <script type="module" th:inline="javascript">
     import {MovieForm} from '/js/movie/box_popup.js'
     let list = [[${boxMoviePage.content}]]
-    console.log(list)
-    MovieForm(list)
+    let first = [[${firstRank}]]
+    let second = [[${secondRank}]]
+    let third = [[${thirdRank}]]
+    let fourth = [[${fourthRank}]]
+    let fifth = [[${fifthRank}]]
+    let sixth = [[${sixthRank}]]
+    let seventh = [[${seventhRank}]]
+    let eighth = [[${eighthRank}]]
+    let ninth = [[${ninthRank}]]
+    let tenth = [[${tenthRank}]]
+    console.log(list, first, second, third, fourth, fifth, sixth, seventh, eighth, ninth, tenth)
+    MovieForm(list, first, second, third, fourth, fifth, sixth, seventh, eighth, ninth, tenth)
 </script>
 
 </body>
