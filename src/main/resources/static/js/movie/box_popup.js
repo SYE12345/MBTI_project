@@ -14,6 +14,7 @@ export function MovieForm(lists, first, second, third, fourth, fifth, sixth, sev
     tenth.sort((a,b) => a.rankDate - b.rankDate)
     console.log(lists)
     console.log(first)
+    a
     const form1 = document.getElementById('form1')
     const form2 = document.getElementById('form2')
     let abc = []
