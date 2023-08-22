@@ -48,4 +48,7 @@ class UserMovieInfoRequest {
     private String genre;
     private String loginId;
     private String name;
+    private String info;
+    private String title;
+    private String author;
 }
