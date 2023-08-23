@@ -18,7 +18,8 @@
         set password=#{memberUpdateParam.password},
             password2=#{memberUpdateParam.password},
             email=#{memberUpdateParam.email},
-            phone_number=#{memberUpdateParam.phoneNumber}
+            phone_number=#{memberUpdateParam.phoneNumber},
+            mbti=#{memberUpdateParam.mbti}
         where login_id = #{loginId}
     </update>
 
