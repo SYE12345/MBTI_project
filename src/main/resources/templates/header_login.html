@@ -414,7 +414,7 @@
                         <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" th:href="@{/movie/box}" role="button" data-toggle="dropdown">Movie</a>
                             <div class="dropdown-menu">
                                 <ul>
-                                    <li><a class="dropdown-item" th:href="@{/movie/box}">박스 오피스</a></li>
+                                    <li><a class="dropdown-item" th:href="@{/best/findAll}">박스 오피스</a></li>
                                     <li><a class="dropdown-item" th:href="@{/movie/analyst}">분석가형(_NT_)</a></li>
                                     <li><a class="dropdown-item" th:href="@{/movie/Diplomatic}">외교관형(_NF_)</a></li>
                                     <li><a class="dropdown-item"th:href="@{/movie/administrator}">관리자형(_S_J)</a></li>
@@ -433,8 +433,9 @@
                                 </ul>
                             </div>
                         </li>
-                        <li class="nav-item"><a class="nav-link" th:href="@{/}">Culture</a></li>
-                        <li class="nav-item"><a class="nav-link" th:href="@{/}">Community</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#Community" th:href="@{/community}">Community</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#" th:href="@{/}">My Page</a></li>
+                        <li class="nav-item"><a class="nav-link" href="login/login.html" th:href="@{/logout}">Logout</a></li>
 
                     </ul>
                 </div>
