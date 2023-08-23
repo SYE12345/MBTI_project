@@ -313,16 +313,19 @@ $(function() {
 	}
 	
 /** Post a Comment **/
-jQuery(".post-comt-box textarea").on("keydown", function(event) {
+$("#comment-form").on("submit", function(event) {
+	event.preventDefault();
 
-	if (event.keyCode == 13) {
-		var comment = jQuery(this).val();
-		var parent = jQuery(".showmore").parent("li");
-		var comment_HTML = '	<li><div class="comet-avatar"><img src="images/resources/user2.png" alt=""></div><div class="we-comment"><div class="coment-head"><h5><a href="time-line.html" title="">이름</a></h5><a class="we-reply" href="#" title="Reply"><i class="fa fa-reply"></i></a></div><p>'+comment+'</p></div></li>';
-		$(comment_HTML).insertBefore(parent);
-		jQuery(this).val('');
+	var comment = $("#comment-input").val();
+	if (comment.trim() === "") {
+		return;
 	}
-}); 
+
+	var comment_HTML = '<li><div class="comet-avatar"><img src="images/resources/user2.png" alt=""></div><div class="we-comment"><div class="coment-head"><h5><a href="time-line.html" title="">이름</a></h5><a class="we-reply" href="#" title="Reply"><i class="fa fa-reply"></i></a></div><p>' + comment + '</p></div></li>';
+
+	$(comment_HTML).insertBefore($(".post-comment"));
+	$("#comment-input").val('');
+});
 	
 //inbox page 	
 //***** Message Star *****//  
