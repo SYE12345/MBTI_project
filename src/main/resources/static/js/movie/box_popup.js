@@ -1,4 +1,5 @@
 export function MovieForm(lists) {
+    console.log('실행됨')
     (lists)
     lists.sort((a,b) => a.rank - b.rank)
     console.log(lists)
@@ -27,8 +28,8 @@ export function MovieForm(lists) {
         const img1 = document.createElement('img')
         const button1 = document.createElement('button')
         const button2 = document.createElement('button')
+        const input= document.createElement('input')
         // const a = document.createElement('a')
-
 
         li.setAttribute('id', `리스트${i}`)
         form1.appendChild(li)
@@ -56,6 +57,8 @@ export function MovieForm(lists) {
         li.appendChild(div5)
         div5.appendChild(button1)
         div5.appendChild(button2)
+        input.setAttribute('type', 'checkbox')
+        div5.appendChild(input)
 
         const div6 = document.createElement('div')
         const div7 = document.createElement('div')

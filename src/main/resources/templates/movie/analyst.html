@@ -83,6 +83,34 @@
     let list = [[${movies.content}]]
     console.log(list)
     MovieForm(list)
+
+    const modal0 = document.getElementsByClassName('modalWrap');
+    const btn = document.querySelectorAll('#form1 button');
+
+    const num = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+    for (let i = 0; i < 10; i++) {
+        function PopUp(e) {
+            e.preventDefault();
+            console.log('gd');
+            modal0[i].style.display = 'block';
+
+            const movieInformation = list[i].information;
+            console.log(movieInformation)
+
+            fetch('/save-user-movie-info', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ information: movieInformation }),
+            })
+            console.log(fetch.body)
+        }
+
+        btn[num[i]].addEventListener('click', PopUp);
+    }
+
 </script>
 
 </body>
