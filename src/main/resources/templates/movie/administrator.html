@@ -36,20 +36,7 @@
 </head>
 <body>
 <div th:include="header.html"></div>
-<aside id="list-aside">
-    <div class="menu">
-        <label for="expand-menu"><div>MBTI 유형</div></label><hr>
-        <input type="checkbox" id="expand-menu" name="expand-menu">
-        <ul>
-            <li><a th:href="@{/movie/analyst}" class="item"><div>분석가형(_NT_)</div></a></li>
-            <li><a th:href="@{/movie/Diplomatic}" class="item"><div>외교관형(_NF_)</div></a></li>
-            <li><a th:href="@{/movie/administrator}" class="item"><div>관리자형(_S_J)</div></a></li>
-            <li><a th:href="@{/movie/explorer}" class="item"><div>탐험가형(_S_P)</div></a></li>
-            <li><a th:href="@{/movie/box}" class="item"><div>박스오피스</div></a></li>
 
-        </ul>
-    </div>
-</aside>
 <section id="list-section">
     <h1>유형별 영화추천 페이지</h1>
     <h2>관리자형(_S_J)</h2>
@@ -85,6 +72,66 @@
     let list = [[${moviePage.content}]]
     console.log(list)
     MovieForm(list)
+
+    const modal0 = document.getElementsByClassName('modalWrap');
+    const btn = document.querySelectorAll('#form1 button');
+
+    const num = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+    async function getUserLoginId() {
+        try {
+            const response = await fetch('/save-user-login-id');
+            if (response.ok) {
+                const data = await response.json();
+                const userLoginId = data ? data.loginId : null;
+                console.log('Fetched userLoginId:', userLoginId); // 확인용 로그
+                return userLoginId;
+            }
+        } catch (error) {
+            console.error('Error fetching user info:', error);
+        }
+        return null;
+    }
+
+    for (let i = 0; i < 10; i++) {
+        async function PopUp(e) {
+            e.preventDefault();
+            console.log('gd');
+            modal0[i].style.display = 'block';
+
+            const movieInformation = list[i].information;
+            console.log(movieInformation);
+
+            const movieName = list[i].name; // 장르 정보 가져오기
+            console.log(movieName);
+
+            const movieGenre = list[i].genre; // 장르 정보 가져오기
+            console.log(movieGenre);
+
+            const userLoginId = await getUserLoginId(); // 사용자 로그인 아이디 값을 비동기적으로 가져옴
+
+            if (userLoginId) {
+                fetch('/save-user-movie-info', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ information: movieInformation, genre: movieGenre, name:movieName ,loginId: userLoginId }),
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log(data); // 서버의 응답 데이터 확인
+                    })
+                    .catch(error => {
+                        console.error('Error sending movie info:', error);
+                    });
+            } else {
+                console.error('User not logged in.');
+            }
+        }
+
+        btn[num[i]].addEventListener('click', PopUp);
+    }
 </script>
 
 </body>

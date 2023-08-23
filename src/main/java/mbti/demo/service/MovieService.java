@@ -3,6 +3,7 @@ package mbti.demo.service;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import mbti.demo.domain.BoxMovie;
+import mbti.demo.domain.BoxRank;
 import mbti.demo.domain.Movie;
 import mbti.demo.mybatis.MovieMapper;
 import mbti.demo.repository.MovieRepository;
@@ -144,5 +145,54 @@ public class MovieService implements MovieServiceInterface {
     }
 
 
+    // 랭크용
+    @Override
+    public List<BoxRank> firstRank() {
+        return movieRepository.firstRank();
+    }
 
+    @Override
+    public List<BoxRank> secondRank() {
+        return movieRepository.secondRank();
+    }
+
+    @Override
+    public List<BoxRank> thirdRank() {
+        return movieRepository.thirdRank();
+    }
+
+    @Override
+    public List<BoxRank> fourthRank() {
+        return movieRepository.fourthRank();
+    }
+
+    @Override
+    public List<BoxRank> fifthRank() {
+        return movieRepository.fifthRank();
+    }
+
+    @Override
+    public List<BoxRank> sixthRank() {
+        return movieRepository.sixthRank();
+    }
+
+    @Override
+    public List<BoxRank> seventhRank() {
+        return movieRepository.seventhRank();
+    }
+
+    @Override
+    public List<BoxRank> eighthRank() {
+        return movieRepository.eighthRank();
+    }
+
+    @Override
+    public List<BoxRank> ninthRank() {
+        return movieRepository.ninthRank();
+    }
+
+    @Override
+    public List<BoxRank> tenthRank() {
+        return movieRepository.tenthRank();
+    }
 }

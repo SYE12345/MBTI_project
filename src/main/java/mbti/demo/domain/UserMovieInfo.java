@@ -1,29 +1,20 @@
 package mbti.demo.domain;
-
+import lombok.Data;
 import jakarta.persistence.*;
-
+@Data
 @Entity
-@Table(name = "movieuser")
+@Table(name = "moviedata")
 public class UserMovieInfo {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "movieuser_id_seq")
-    @SequenceGenerator(name = "movieuser_id_seq", sequenceName = "movieuser_id_seq", allocationSize = 1)
-    private Long user_id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private String id; // String 타입으로 변경
+    @Column(name = "login_id")
+    private String loginId;
+
+    private String genre;
+
     private String information;
 
-    public Long getId() {
-        return user_id;
-    }
+    private String name;
 
-    public void setId(Long id) {
-        this.user_id = id;
-    }
-
-    public String getInformation() {
-        return information;
-    }
-
-    public void setInformation(String information) {
-        this.information = information;
-    }
 }

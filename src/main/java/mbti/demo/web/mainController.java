@@ -17,14 +17,14 @@ public class mainController {
         HttpSession session = request.getSession(false);
 
         if(session==null){
-            return "main/main";
+            return "main";
         }
         Member loginMember = (Member)session.getAttribute(SessionConst.LOGIN_MEMBER);
         if(loginMember == null){
-            return "main/main";
+            return "main";
         }
         model.addAttribute("member",loginMember);
-        return "main/main_login";
+        return "main_login";
     }
 
 }
