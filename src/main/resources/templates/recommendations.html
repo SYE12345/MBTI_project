@@ -49,8 +49,9 @@
 <div class="footer_wrap" th:include="footer.html"></div>
 
 <script type="module" th:inline="javascript">
-  import {recommendations} from '/js/recommend_popup.js'
-  let list = [[${recommendations.content}]]
+  import {DataForm} from '/js/recommend_popup.js'
+  var recommendations = [[${recommendations}]];
+  DataForm(recommendations)
 </script>
 </body>
 </html>

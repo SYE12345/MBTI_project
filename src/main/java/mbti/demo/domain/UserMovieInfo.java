@@ -17,9 +17,4 @@ public class UserMovieInfo {
 
     private String name;
 
-    private String author;
-    private String title;
-    private String info;
-
-
 }
