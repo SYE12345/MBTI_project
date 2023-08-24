@@ -19,8 +19,7 @@
         URL,
         영화정보 AS information
         from Movie
-        where 영화장르 = #{genre}
---         ORDER BY
+        WHERE 영화장르 LIKE '%' || #{genre} || '%'
     </select>
 
     <select id="findByAnalystType" resultType="movie">
