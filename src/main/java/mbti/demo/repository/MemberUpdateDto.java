@@ -8,14 +8,9 @@ public class MemberUpdateDto {
     private String password2;
     private String email;
     private String phoneNumber;
+    private String mbti;
 
     public MemberUpdateDto(){
     }
 
-    public MemberUpdateDto(String password, String password2, String email, String phoneNumber) {
-        this.password = password;
-        this.password2 = password2;
-        this.email = email;
-        this.phoneNumber = phoneNumber;
-    }
 }

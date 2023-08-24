@@ -1,9 +1,12 @@
 package mbti.demo.web;
 
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import mbti.demo.domain.Member;
 import mbti.demo.repository.MemberUpdateDto;
+import mbti.demo.repository.SessionConst;
 import mbti.demo.service.MemberServiceInterface;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -28,12 +31,6 @@ public class MemberController {
         return "member/join";
     }
 
-//    @PostMapping("/join")
-//    public String join(Member member) {
-//        memberServiceInterface.save(member);
-//        return "redirect:/";
-//    }
-
     @PostMapping("/join")
     public String join(@Validated @ModelAttribute
                        Member member, BindingResult bindingResult, RedirectAttributes redirectAttributes){
@@ -51,6 +48,21 @@ public class MemberController {
         return "redirect:/";
     }
 
+
+    @GetMapping("/mypage")
+    public String mypage(HttpServletRequest request, Model model){
+        HttpSession session = request.getSession(false);
+        // 세션에서 로그인한 회원 정보 가져오기
+        if(session==null){
+            return "main/main_login";
+        }
+        Member loginMember = (Member)session.getAttribute(SessionConst.LOGIN_MEMBER);
+        if(loginMember == null){
+            return "main/main_login";
+        }
+        model.addAttribute("member",loginMember);
+        return "member/mypage";
+    }
     @GetMapping("/{loginId}/myInfo")
     public String myInfoForm(@PathVariable String loginId, Model model) {
         Member member = memberServiceInterface.findByLoginId(loginId).get();
@@ -62,6 +74,6 @@ public class MemberController {
     public String myInfo(@PathVariable String loginId, MemberUpdateDto member) {
         memberServiceInterface.update(loginId, member);
 
-        return "redirect:/";
+        return "member/myInfo";
     }
 }

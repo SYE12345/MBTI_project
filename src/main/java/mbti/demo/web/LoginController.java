@@ -49,13 +49,13 @@ public class LoginController {
         return "redirect:/";
     }
 
-    @PostMapping("/logout")
+    @GetMapping("/logout")
     public String logout(HttpServletRequest request) {
         HttpSession session = request.getSession(false);
         if (session != null) {
             session.invalidate();
         }
-        return "redirect:/";
+        return "main/main";
     }
 
     @GetMapping("/find_id")
