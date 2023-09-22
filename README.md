@@ -1,24 +1,37 @@
-# MBTI_project
-MBTI PLUSE_프로젝트(2023.08.9~2023.08.29)
+# 📌 MBTI_project
+> MBTI PLUSE_프로젝트(2023.08.9~2023.08.29)
+> 팀 프로젝트(5명)
+</br>
 
-## 📗프로젝트 목표/소개
+## 🛠 개발환경(사용도구/언어)
+#### `Back-end`
+- Java
+- Python
+- Oracle
+- github(형상관리)
+- Spring Boot 2.3
+- Gradle
+
+#### `Front-end`
+- html
+- css
+- js 
+</br>
+
+## 📗 핵심 기능
 1. MBTI 분포도 그래프를 통한 각 유형별 비율을 시각적 표현 
 2. MBTI 유형별 친구 매칭 커뮤니티를 통한 비슷한 성향 선호 성향을 가진 사람들과 소통 제공
 3. 게시판과 채팅을 통한 유저들 간의 소통, 정보 공유를 하는 활발한 커뮤니티 목적
 4. MBTI 유형별 사용자 특성에 맞는 책, 영화, 음악, 장소등을 추천 알고리즘을 활용하여 맞춤형 서비스 제공
+</br>
 
-## 🛠개발환경(사용도구/언어)
-- IntelliJ(Java, html, css, js, spring boot, spring)
-- pycharm(Python)
-- Oracle
-- github(형상관리)
-
-## 👩🏻‍💻담당역할
+## 👩🏻‍💻 담당 역할
 1. MBTI 유형별 사용자 특성에 맞는 책을 제공할 수 있도록 네이버 검색(책) openApi을 사용하여 데이터 저장 및 스프링 연결 후 페이지 구현
 2. 책 제공시 베스트 셀러를 사용자에게 제공하고자, 교보문구 web Scraping 후 데이터 저장 및 스프링 연결 후 페이지 구현
-3. 커뮤니티 오픈 채팅 기능 – 사용자 간에 소통할 수 있도록 web socket 사용하여 페이지 구현 
+3. 커뮤니티 오픈 채팅 기능 – 사용자 간에 소통할 수 있도록 web socket 사용하여 페이지 구현
+</br> 
 
-## 📝프로젝트 상세 내용   
+## 📝 프로젝트 상세 내용   
 ![슬라이드2](https://github.com/SYE12345/MBTI_project/assets/129352928/ed074194-be46-4c44-8728-a1e9ae7a631e)
 ![슬라이드4](https://github.com/SYE12345/MBTI_project/assets/129352928/56be5513-4b83-4fd6-8728-7c2b8f86296c)
 ![슬라이드5](https://github.com/SYE12345/MBTI_project/assets/129352928/ea8e90ce-1fa4-443e-acbf-95b3761161cb)
