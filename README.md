@@ -53,6 +53,3 @@
 ![슬라이드29](https://github.com/SYE12345/MBTI_project/assets/129352928/2ffb2203-4d64-40e1-9043-48e602b03482)
 ![슬라이드30](https://github.com/SYE12345/MBTI_project/assets/129352928/8b1f1f3a-e18d-4166-b66e-760105c88c53)
 ![슬라이드31](https://github.com/SYE12345/MBTI_project/assets/129352928/007803e1-eda8-4007-acef-a98a3e5c416f)
-![슬라이드35](https://github.com/SYE12345/MBTI_project/assets/129352928/fdfbed64-4dd2-4d46-bc7e-553940f9343e)
-![슬라이드36](https://github.com/SYE12345/MBTI_project/assets/129352928/afa664b6-b43e-416e-95d5-2c08d18edc3b)
-![슬라이드37](https://github.com/SYE12345/MBTI_project/assets/129352928/2338c14d-938a-4f97-b02e-185f6f3dbb46)
